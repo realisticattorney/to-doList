@@ -1,0 +1,28 @@
+{
+  "name": "to-doList",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/realisticattorney/to-doList.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/realisticattorney/to-doList/issues"
+  },
+  "homepage": "https://github.com/realisticattorney/to-doList#readme",
+  "devDependencies": {
+    "webpack": "^5.30.0",
+    "webpack-cli": "^4.6.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
