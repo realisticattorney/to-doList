@@ -1,0 +1,53 @@
+let projects = [
+  {
+    title: 'Inbox',
+    color: 'Grey'
+  },
+  {
+    title: 'Microverse',
+    color: 'Purple',
+  },
+  {
+    title: 'Workout',
+    color: 'Yellow',
+  }
+]
+
+let tasks = [
+  {
+    title: 'Modify the last project',
+    desc: 'Split the project in small tasks',
+    dueDate: '04/06/2021',
+    priority: 'high',
+    project: 'Inbox'
+  },
+  {
+    title: 'Create a to-do app',
+    desc: 'Split the project in small tasks',
+    dueDate: '04/06/2021',
+    priority: 'high',
+    project: 'Microverse'
+  },
+  {
+    title: 'Legs',
+    desc: 'Be careful to not get injuried',
+    dueDate: '04/07/2021',
+    priority: 'high',
+    project: 'Workout'
+  }
+]
+
+// localStorage.setItem('projects', JSON.stringify(projects));
+// localStorage.setItem('tasks', JSON.stringify(tasks));
+
+const dataProjects = JSON.parse(localStorage.getItem('projects'));
+// const dataTasks = JSON.parse(localStorage.getItem('tasks'));
+
+dataProjects[0].title = 'Test';
+
+localStorage.setItem('projects', JSON.stringify(dataProjects));
+
+
+
+console.log(dataProjects[0].title);
+console.log(dataTasks)
