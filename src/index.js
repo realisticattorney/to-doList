@@ -1,19 +1,7 @@
-
-
-// function Task(name) {
-//   this.title = title;
-//   this.description = description;
-//   this.dueDate = dueDate;
-//   this.priority = priority;
-// }
-
-import { update } from "lodash";
-
 import projectCreation from './project';
 import displayProjects from './project'
 
 projectCreation();
-// let firstTask = new Task("create prototype", "a bunch of properties into a function constructor", Date.now(), 1 );
 
 
 window.addEventListener('load', () => {
@@ -26,8 +14,6 @@ window.addEventListener('load', () => {
 })
 
 
-
-
 // Tasks creation
 
 const Tasks = (title, desc, date, priority) => {
@@ -35,3 +21,5 @@ const Tasks = (title, desc, date, priority) => {
 
   return { title, desc, date, priority }
 }
+
+// let firstTask = new Task("create prototype", "a bunch of properties into a function constructor", Date.now(), 1 );
