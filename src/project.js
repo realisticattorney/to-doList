@@ -22,6 +22,14 @@ const projectCreation = () => {
     document.querySelector('#projects-container').innerHTML = p;
   }
 
+  const addNewProject = (name) => {
+    const item = createProject(name);
+    const temp = updatedProjects();
+    temp.push(item);
+    updateProjects(temp);
+    projectName.value = "";
+  }
+
 
 
   projectBtn.addEventListener('click', () => {
