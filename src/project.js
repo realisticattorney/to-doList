@@ -14,6 +14,14 @@ const projectCreation = () => {
     localStorage.setItem('projects', JSON.stringify(arr));
   }
 
+  const displayProjects = () => {
+    const temp = updatedProjects();
+    const p = temp.map(project => (
+      `<p>${project.name}</p>`
+    )).join('\n');
+    document.querySelector('#projects-container').innerHTML = p;
+  }
+
 
 
   projectBtn.addEventListener('click', () => {
