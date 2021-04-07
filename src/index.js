@@ -8,6 +8,10 @@ window.addEventListener('load', () => {
   if(JSON.parse(localStorage.getItem('projects')) === null) {
     localStorage.setItem('projects', JSON.stringify(new Array));
   }
+
+  if(JSON.parse(localStorage.getItem('tasks')) === null) {
+    localStorage.setItem('tasks', JSON.stringify(new Array));
+  }
   
   displayProjects();
 })
@@ -15,10 +19,11 @@ window.addEventListener('load', () => {
 
 // Tasks creation
 
-const taskName = querySelector('#task-name');
-const taskDesc = querySelector('#task-desc');
-const taskDate = querySelector('#task-date');
-const taskBtn = querySelector('#task-btn');
+const taskName = document.querySelector('#task-name');
+const taskDesc = document.querySelector('#task-desc');
+const taskDate = document.querySelector('#task-date');
+const taskPriority = document.querySelector('#task-priority');
+const taskBtn = document.querySelector('#task-btn');
 
 const createTask = (title, desc, date, priority) => {
   return { title, desc, date, priority };
@@ -51,6 +56,6 @@ const addNewTask = () => {
 
 const taskCreation = () => {
   taskBtn.addEventListener('click', () => {
-    
+
   })
 }
