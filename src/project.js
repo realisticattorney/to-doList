@@ -30,7 +30,12 @@ const projectCreation = () => {
     projectName.value = "";
   }
 
-
+  const validateInput = (id) => {
+    if(id.value === null || id.value === "") {
+      alert('Please fill the required fields');
+      return true;
+    }
+  }
 
   projectBtn.addEventListener('click', () => {
     if (!validateInput(projectName)) {
