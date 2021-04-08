@@ -47,5 +47,6 @@ const projectCreation = () => {
 
 module.exports = {
   displayProjects,
-  projectCreation
+  projectCreation,
+  updatedProjects,
 }
