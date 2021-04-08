@@ -11,36 +11,38 @@
       <div class="header">
         <h1>TO-DO JS</h1>
       </div>
-      <div>
-        <label>New Project:</label>
-        <input placeholder="Project name" id="new-project" class="projectName">
-        <button type="button" id="project-btn">Create Project</button>
-      </div>
-      <div id="projects-container">
-
-      </div>
-      <div id='tasks-container'>
-
-      </div>
-
-      <div>
-        <label>New Task</label>
-        <input placeholder='Task name' id='task-name' class='taskName'>
-        <label>Description:</label>
-        <input placeholder='Task description' id='task-desc' class='taskDesc'>
-        <label>Date:</label>
-        <input type='date' id='task-date' class='taskDate'>
-        <label>Priority</label>
-        <select id='task-priority'>
-          <option id='Normal'>Normal</option>
-          <option id='Urgent'>Urgent</option>
-          <option id='Later'>Later</option>
-        </select>
-        <label>Project:</label>
-        <select id='task-project'>
-          <option id='Inbox'>Inbox</option>
-        </select>
-        <button type='button' id='task-btn'>Create Task</button>
+      <div class='d-flex'>
+        <div>
+          <div>
+            <label>New Project:</label>
+            <input placeholder="Project name" id="new-project" class="projectName">
+            <button type="button" id="project-btn">Create Project</button>
+          </div>
+          <div id="projects-container"></div>
+        </div>
+  
+        <div>
+          <div>
+            <label>New Task</label>
+            <input placeholder='Task name' id='task-name' class='taskName'>
+            <label>Description:</label>
+            <input placeholder='Task description' id='task-desc' class='taskDesc'>
+            <label>Date:</label>
+            <input type='date' id='task-date' class='taskDate'>
+            <label>Priority</label>
+            <select id='task-priority'>
+              <option id='Normal'>Normal</option>
+              <option id='Urgent'>Urgent</option>
+              <option id='Later'>Later</option>
+            </select>
+            <label>Project:</label>
+            <select id='task-project'>
+              <option id='Inbox'>Inbox</option>
+            </select>
+            <button type='button' id='task-btn'>Create Task</button>
+          </div>
+          <div id='tasks-container'></div>
+        </div>
       </div>
     </div>
 
