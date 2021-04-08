@@ -23,6 +23,7 @@
     "webpack-cli": "^4.6.0"
   },
   "dependencies": {
+    "date-fns": "^2.20.0",
     "lodash": "^4.17.21"
   },
   "main": "webpack.config.js"

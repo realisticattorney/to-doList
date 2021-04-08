@@ -20,11 +20,17 @@ const updateTasks = (arr) => {
 const displayTasks = () => {
   const temp = updatedTasks();
   const p = temp.map((task, index) => (
-    `<p>${task.name}</p>
-    <p>${task.desc}</p>
-    <p>${task.date}</p>
-    <p>${task.priority}</p>
-    <button type='button' onClick='deleteTask(${index})'>Delete</button>`
+    `<h3 class=''>${task.name}</h3>
+    <input class='' value=${task.name}>
+    <p class=''>${task.desc}</p>
+    <input class='' value=${task.desc}>
+    <p class=''>${task.priority}</p>
+    <input class='' value=${task.priority}>
+    <p class=''>${task.date}</p>
+    <input class='' type='date' value=${task.date}>
+    <button class='' type='button'>Edit</button>
+    <button class='' type='button'>Save</button>
+    <button class='' type='button' onClick='deleteTask(${index})'>Delete</button>`
   )).join('\n');
   document.querySelector('#tasks-container').innerHTML = p;
 }
