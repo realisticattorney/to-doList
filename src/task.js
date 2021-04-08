@@ -2,10 +2,11 @@ const taskName = document.querySelector('#task-name');
 const taskDesc = document.querySelector('#task-desc');
 const taskDate = document.querySelector('#task-date');
 const taskPriority = document.querySelector('#task-priority');
+const taskProject = document.querySelector('#task-project');
 const taskBtn = document.querySelector('#task-btn');
 
-const createTask = (name, desc, date, priority) => {
-  return { name, desc, date, priority };
+const createTask = (name, desc, date, priority, project) => {
+  return { name, desc, date, priority, project };
 }
 
 const updatedTasks = () => {
@@ -28,8 +29,8 @@ const displayTasks = () => {
   document.querySelector('#tasks-container').innerHTML = p;
 }
 
-const addNewTask = (name, desc, date, priority) => {
-  const item = createTask(name, desc, date, priority);
+const addNewTask = (name, desc, date, priority, project) => {
+  const item = createTask(name, desc, date, priority, project);
   const temp = updatedTasks();
   temp.push(item);
   updateTasks(temp);
@@ -59,7 +60,7 @@ const validateInput = (id) => {
 const taskCreation = () => {
   taskBtn.addEventListener('click', () => {
     if (!validateInput(taskName)) {
-      addNewTask(taskName.value, taskDesc.value, taskDate.value, taskPriority.value);
+      addNewTask(taskName.value, taskDesc.value, taskDate.value, taskPriority.value, taskProject.value);
       displayTasks()
     }
   })
@@ -68,5 +69,4 @@ const taskCreation = () => {
 module.exports = {
   taskCreation,
   displayTasks,
-
 };
