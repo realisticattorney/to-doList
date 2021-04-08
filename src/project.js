@@ -1,3 +1,4 @@
+
 const projectBtn = document.querySelector('#project-btn');
 const projectName = document.querySelector('#new-project');
 
@@ -36,11 +37,22 @@ const validateInput = (id) => {
   }
 }
 
+const addProjectsToSelection = () => {
+  const temp = JSON.parse(localStorage.getItem('projects'));
+  const selectProject = document.querySelector('#task-project')
+  const mappingProjects = temp.map(project => (
+    `<option>${project.name}</option>`
+  ))
+  selectProject.innerHTML = mappingProjects;
+}
+
 const projectCreation = () => {
   projectBtn.addEventListener('click', () => {
     if (!validateInput(projectName)) {
       addNewProject(projectName.value);
+      addProjectsToTask()
       displayProjects()
+      addProjectsToSelection()
     }
   });
 }
@@ -49,4 +61,4 @@ module.exports = {
   displayProjects,
   projectCreation,
   updatedProjects,
-}
+};

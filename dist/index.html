@@ -12,7 +12,7 @@
 
       </div>
       <div>
-        <label>New Project</label>
+        <label>New Project:</label>
         <input placeholder="Project name" id="new-project" class="projectName">
         <button type="button" id="project-btn">Create Project</button>
       </div>
@@ -23,12 +23,19 @@
       <div>
         <label>New Task</label>
         <input placeholder='Task name' id='task-name' class='taskName'>
+        <label>Description:</label>
         <input placeholder='Task description' id='task-desc' class='taskDesc'>
+        <label>Date:</label>
         <input type='date' id='task-date' class='taskDate'>
+        <label>Priority</label>
         <select id='task-priority'>
           <option id='Normal'>Normal</option>
           <option id='urgent'>Urgent</option>
           <option id='later'>Later</option>
+        </select>
+        <label>Project:</label>
+        <select id='task-project'>
+          <option>Inbox</option>
         </select>
         <button type='button' id='task-btn'>Create Task</button>
       </div>

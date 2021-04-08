@@ -39,7 +39,7 @@ const addNewTask = (name, desc, date, priority) => {
   taskPriority.value = "";
 }
 
-// Defining this function as a global functiondisplayTasks
+// Defining this function as a global function
 window.deleteTask = deleteTask = (id) => {
   const temp = updatedTasks();
   temp.splice(id, 1);
@@ -47,10 +47,6 @@ window.deleteTask = deleteTask = (id) => {
   displayTasks();
 }
 
-
-const addProjectsToTask = () => {
-
-}
 
 
 const validateInput = (id) => {
@@ -72,4 +68,5 @@ const taskCreation = () => {
 module.exports = {
   taskCreation,
   displayTasks,
-}
+
+};
