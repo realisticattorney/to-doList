@@ -1,8 +1,6 @@
 import { displayProjects, projectCreation, addProjectsToSelection } from './project';
 import { taskCreation, displayTasks } from './task'
 
-projectCreation();
-taskCreation();
 
 window.addEventListener('load', () => {
 
@@ -16,5 +14,8 @@ window.addEventListener('load', () => {
   displayProjects();
   displayTasks();
   addProjectsToSelection();
+  projectCreation();
+  taskCreation();
+
 })
 

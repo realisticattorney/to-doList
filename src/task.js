@@ -5,6 +5,15 @@ const taskPriority = document.querySelector('#task-priority');
 const taskProject = document.querySelector('#task-project');
 const taskBtn = document.querySelector('#task-btn');
 
+// window.addEventListener('load', () => {
+//   taskName = document.querySelector('#task-name');
+//   taskDesc = document.querySelector('#task-desc');
+//   taskDate = document.querySelector('#task-date');
+//   taskPriority = document.querySelector('#task-priority');
+//   taskProject = document.querySelector('#task-project');
+//   taskBtn = document.querySelector('#task-btn');
+//   editBtn = document.querySelector('#edit-btn');
+// })
 const createTask = (name, desc, date, priority, project) => {
   return { name, desc, date, priority, project };
 }
@@ -20,17 +29,19 @@ const updateTasks = (arr) => {
 const displayTasks = () => {
   const temp = updatedTasks();
   const p = temp.map((task, index) => (
-    `<h3 class=''>${task.name}</h3>
-    <input class='' value=${task.name}>
-    <p class=''>${task.desc}</p>
-    <input class='' value=${task.desc}>
-    <p class=''>${task.priority}</p>
-    <input class='' value=${task.priority}>
-    <p class=''>${task.date}</p>
-    <input class='' type='date' value=${task.date}>
-    <button class='' type='button'>Edit</button>
-    <button class='' type='button'>Save</button>
-    <button class='' type='button' onClick='deleteTask(${index})'>Delete</button>`
+    `<div class='singleTask'>
+    <h3>${task.name}</h3>
+    <input class='task-input editing' value=${task.name}>
+    <p>${task.desc}</p>
+    <input class='task-input editing' value=${task.desc}>
+    <p>${task.priority}</p>
+    <input class='task-input editing' value=${task.priority}>
+    <p>${task.date}</p>
+    <input class='task-input editing' type='date' value=${task.date}>
+    <button id='edit-btn' type='button' onClick='editTask()'>Edit</button>
+    <button class='task-input editing' type='button'>Save</button>
+    <button class='task-input editing' type='button' onClick='deleteTask(${index})'>Delete</button>
+    </div>`
   )).join('\n');
   document.querySelector('#tasks-container').innerHTML = p;
 }
@@ -54,7 +65,22 @@ window.deleteTask = deleteTask = (id) => {
   displayTasks();
 }
 
+window.editTask = editTask = () => {
+  const taskInput = document.querySelectorAll('.task-input');
+  const editBtn = document.querySelector('#edit-btn');
+  if(editBtn.innerText === 'Edit') {
+    editBtn.innerText = 'Cancel'
+  } else {
+    editBtn.innerText = 'Edit'
+  }
+  for(let i = 0; i < taskInput.length; i += 1){
+    taskInput[i].classList.toggle('editing');
+  }
+}
 
+window.saveTask = saveTask = () => {
+
+}
 
 const validateInput = (id) => {
   if(id.value === null || id.value === "") {
@@ -71,6 +97,10 @@ const taskCreation = () => {
     }
   })
 }
+
+// editBtn.addEventListener('click', () => {
+//   editTask();
+// }) 
 
 module.exports = {
   taskCreation,

@@ -31,6 +31,16 @@
   padding: 0px 10px;
 }
 
+.singleTask {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+}
+
+.editing {
+  display: none;
+}
+
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
