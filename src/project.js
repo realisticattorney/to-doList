@@ -17,7 +17,7 @@ const updateProjects = (arr) => {
 const displayProjects = () => {
   const temp = updatedProjects();
   const p = temp.map(project => (
-    `<button class='projectBtn'>${project.name}</button>`
+    `<button class='projectBtn' >${project.name}</button>`
   )).join('\n');
   document.querySelector('#projects-container').innerHTML = p;
 }
