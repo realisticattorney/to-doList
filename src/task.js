@@ -108,6 +108,7 @@ const openEdit = (id) => {
 
   closeBtn.onclick = () => {
     openModal.style.display = 'none';
+    modalWrapper.remove()
   }
 }
 
