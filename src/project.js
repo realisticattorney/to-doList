@@ -1,3 +1,4 @@
+const { filteringBtns } = require("./filter");
 
 const projectBtn = document.querySelector('#project-btn');
 const projectName = document.querySelector('#new-project');
@@ -52,6 +53,7 @@ const projectCreation = () => {
       addNewProject(projectName.value);
       displayProjects()
       addProjectsToSelection()
+      filteringBtns()
     }
   });
 }
