@@ -1,11 +1,3 @@
-const projects = [];
-
-function createProject(name) {
-
-  return {
-    name
-  }
-}
-
-
-export default createProject;
+const title = document.createElement('h1')
+title.innerText = 'Helloooo'
+body.appendChild(title)
