@@ -69,16 +69,16 @@ window.deleteTask = deleteTask = (id) => {
 }
 
 window.editTask = editTask = () => {
-  const taskInput = document.querySelectorAll('.task-input');
-  const editBtn = document.querySelector('#edit-btn');
-  if(editBtn.innerText === 'Edit') {
-    editBtn.innerText = 'Cancel'
-  } else {
-    editBtn.innerText = 'Edit'
-  }
-  for(let i = 0; i < taskInput.length; i += 1){
-    taskInput[i].classList.toggle('editing');
-  }
+  // const taskInput = document.querySelectorAll('.task-input');
+  // const editBtn = document.querySelector('#edit-btn');
+  // if(editBtn.innerText === 'Edit') {
+  //   editBtn.innerText = 'Cancel'
+  // } else {
+  //   editBtn.innerText = 'Edit'
+  // }
+  // for(let i = 0; i < taskInput.length; i += 1){
+  //   taskInput[i].classList.toggle('editing');
+  // }
 }
 
 window.saveTask = saveTask = () => {
