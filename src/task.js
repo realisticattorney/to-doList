@@ -5,15 +5,6 @@ const taskPriority = document.querySelector('#task-priority');
 const taskProject = document.querySelector('#task-project');
 const taskBtn = document.querySelector('#task-btn');
 
-// window.addEventListener('load', () => {
-//   taskName = document.querySelector('#task-name');
-//   taskDesc = document.querySelector('#task-desc');
-//   taskDate = document.querySelector('#task-date');
-//   taskPriority = document.querySelector('#task-priority');
-//   taskProject = document.querySelector('#task-project');
-//   taskBtn = document.querySelector('#task-btn');
-//   editBtn = document.querySelector('#edit-btn');
-// })
 const createTask = (name, desc, date, priority, project) => {
   return { name, desc, date, priority, project };
 }
@@ -31,22 +22,14 @@ const displayTasks = () => {
   const p = temp.map((task, index) => (
     `<div class='singleTask'>
       <h3>${task.name}</h3>
-      <input class='task-input editing' value=${task.name}>
       <p>${task.desc}</p>
-      <input class='task-input editing' value=${task.desc}>
       <p>${task.priority}</p>
-      <input class='task-input editing' value=${task.priority}>
       <p>${task.date}</p>
-      <input class='task-input editing' type='date' value=${task.date}>
-
-      <button id='edit-btn' type='button' onClick='editTask()'>Edit</button>
-      
-      <button class='task-input editing' type='button'>Save</button>
-
-      <button class='task-input editing' type='button' onClick='deleteTask(${index})'>Delete</button>
+      <button type='button' onClick='deleteTask(${index})'>Delete</button>
     </div>`
   )).join('\n');
   document.querySelector('#tasks-container').innerHTML = p;
+  editTask();
 }
 
 const addNewTask = (name, desc, date, priority, project) => {
@@ -68,17 +51,64 @@ window.deleteTask = deleteTask = (id) => {
   displayTasks();
 }
 
-window.editTask = editTask = () => {
-  // const taskInput = document.querySelectorAll('.task-input');
-  // const editBtn = document.querySelector('#edit-btn');
-  // if(editBtn.innerText === 'Edit') {
-  //   editBtn.innerText = 'Cancel'
-  // } else {
-  //   editBtn.innerText = 'Edit'
-  // }
-  // for(let i = 0; i < taskInput.length; i += 1){
-  //   taskInput[i].classList.toggle('editing');
-  // }
+const editTask = () => {
+  const task = document.querySelectorAll('.singleTask');
+  
+  for(let i = 0; i < task.length; i += 1){
+    const editBtn = document.createElement('button');
+    editBtn.innerText = 'Edit';
+    editBtn.type = 'button';
+    editBtn.addEventListener('click', () => {
+      openEdit(i);
+    });
+    task[i].appendChild(editBtn);
+  }
+}
+
+const openEdit = (id) => {
+  const temp = updatedTasks();
+
+  const contentDiv = document.querySelector('#content');
+
+  const modalWrapper = document.createElement('div');
+  modalWrapper.classList.add('modal');
+  modalWrapper.id = 'taskModal';
+
+  const modalContent = document.createElement('div');
+  modalContent.classList.add('modalContent');
+
+  const closeBtn = document.createElement('span');
+  closeBtn.classList.add('close');
+  closeBtn.innerText = 'X';
+
+  const taskNameInput = document.createElement('input');
+  taskNameInput.value = temp[id].name;
+
+  const taskDescInput = document.createElement('input');
+  taskDescInput.value = temp[id].desc;
+
+  const taskDateInput = document.createElement('input');
+  taskDateInput.type = 'date';
+  taskDateInput.value = temp[id].date;
+
+  const taskPriorityInput = document.createElement('select');
+
+  const taskProjectInput = document.createElement('select');
+
+  modalContent.appendChild(taskDateInput);
+  modalContent.appendChild(taskDescInput);
+  modalContent.appendChild(taskName);
+  
+  modalContent.appendChild(closeBtn);
+  modalWrapper.appendChild(modalContent);
+  contentDiv.appendChild(modalWrapper);
+
+  const openModal = document.querySelector('.modal');
+  openModal.style.display = 'block';
+
+  closeBtn.onclick = () => {
+    openModal.style.display = 'none';
+  }
 }
 
 window.saveTask = saveTask = () => {
