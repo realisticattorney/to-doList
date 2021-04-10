@@ -11,9 +11,9 @@ const createTask = (name, desc, date, priority, project) => {
   return { name, desc, date, priority, project };
 }
 
-const displayTasks = () => {
-  const temp = updatedTasks();
-  const p = temp.map(task => (
+const displayTasks = (arg) => {
+  const tasksArr = updatedTasks();
+  const p = tasksArr.map(task => (
     `<div class='singleTask'>
       <h3>${task.name}</h3>
     </div>`
@@ -34,23 +34,26 @@ const addNewTask = (name, desc, date, priority, project) => {
 }
 
 const deleteTask = (id) => {
-  const temp = updatedTasks();
-  temp.splice(id, 1);
-  updateTasks(temp);
+  const tasksArr = updatedTasks();
+  tasksArr.splice(id, 1);
+  updateTasks(tasksArr);
   displayTasks();
 }
 
+const expandTask = () => {
+
+}
+
 const editTask = () => {
-  const task = document.querySelectorAll('.singleTask');
-  
-  for(let i = 0; i < task.length; i += 1){
+  const tasks = document.querySelectorAll('.singleTask');
+  for(let i = 0; i < tasks.length; i += 1){
     const editBtn = document.createElement('button');
     editBtn.innerText = 'Edit';
     editBtn.type = 'button';
     editBtn.addEventListener('click', () => {
       openEdit(i);
     });
-    task[i].appendChild(editBtn);
+    tasks[i].appendChild(editBtn);
   }
 }
 
@@ -167,4 +170,5 @@ const taskCreation = () => {
 export {
   taskCreation,
   displayTasks,
+  editTask,
 };

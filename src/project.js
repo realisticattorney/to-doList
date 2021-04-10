@@ -9,8 +9,8 @@ const createProject = (name) => {
 }
 
 const displayProjects = () => {
-  const temp = updatedProjects();
-  const p = temp.map(project => (
+  const arr = updatedProjects();
+  const p = arr.map(project => (
     `<button class='projectBtn' >${project.name}</button>`
   )).join('\n');
   document.querySelector('#projects-container').innerHTML = p;
@@ -18,16 +18,16 @@ const displayProjects = () => {
 
 const addNewProject = (name) => {
   const item = createProject(name);
-  const temp = updatedProjects();
-  temp.push(item);
-  updateProjects(temp);
+  const arr = updatedProjects();
+  arr.push(item);
+  updateProjects(arr);
   projectName.value = "";
 }
 
 const addProjectsToSelection = () => {
-  const temp = JSON.parse(localStorage.getItem('projects'));
+  const arr = updatedProjects();
   const selectProject = document.querySelector('#task-project')
-  const mappingProjects = temp.map(project => (
+  const mappingProjects = arr.map(project => (
     `<option id='${project.name}'>${project.name}</option>`
   ));
   selectProject.innerHTML = mappingProjects;
