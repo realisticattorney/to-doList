@@ -88,13 +88,16 @@ const openEdit = (id) => {
 
   const taskNameInput = document.createElement('input');
   taskNameInput.value = tempTasks[id].name;
+  taskNameInput.id = 'editingName';
 
   const taskDescInput = document.createElement('input');
   taskDescInput.value = tempTasks[id].desc;
+  taskDescInput.id = 'editingDesc';
 
   const taskDateInput = document.createElement('input');
   taskDateInput.type = 'date';
   taskDateInput.value = tempTasks[id].date;
+  taskDateInput.id = 'editingDate';
 
   const taskPriorityInput = document.createElement('select');
   const optionOne = document.createElement('option');
@@ -105,6 +108,7 @@ const openEdit = (id) => {
   optionThree.innerText = 'Later';
   taskPriorityInput.append(optionOne, optionTwo, optionThree);
   taskPriorityInput.value = tempTasks[id].priority;
+  taskPriorityInput.id = 'editingPriority';
 
   const taskProjectInput = document.createElement('select');
   for(let i = 0; i < tempProjects.length; i += 1) {
@@ -113,6 +117,7 @@ const openEdit = (id) => {
     taskProjectInput.append(projectOption)
   }
   taskProjectInput.value = tempTasks[id].project
+  taskProjectInput.id = 'editingProject';
 
   modalContent.appendChild(taskProjectInput);
   modalContent.appendChild(taskPriorityInput);
@@ -140,9 +145,29 @@ const openEdit = (id) => {
     deleteTask(id);
     modalWrapper.remove()
   })
+
+  const saveBtn = document.createElement('button');
+  saveBtn.type = 'button';
+  saveBtn.innerText = 'Save';
+  modalContent.appendChild(saveBtn);
+  saveBtn.addEventListener('click', () => {
+    saveTask(id);
+    modalWrapper.remove(); 
+  })
 }
 
-window.saveTask = saveTask = () => {
+const saveTask = (id) => {
+  const editingName = document.querySelector('#editingName');
+  const editingDesc = document.querySelector('#editingDesc');
+  const editingDate = document.querySelector('#editingDate');
+  const editingPriority = document.querySelector('#editingPriority');
+  const editingProject = document.querySelector('#editingProject');
+
+  const editedTask = createTask(editingName.value, editingDesc.value, editingDate.value, editingPriority.value, editingProject.value);
+  const tempTasks = updatedTasks();
+  tempTasks[id] = editedTask;
+  updateTasks(tempTasks);
+  displayTasks();
 }
 
 const validateInput = (id) => {
