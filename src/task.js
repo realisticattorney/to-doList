@@ -13,6 +13,10 @@ const updatedTasks = () => {
   return JSON.parse(localStorage.getItem('tasks'));
 }
 
+const updatedProjects = () => {
+  return JSON.parse(localStorage.getItem('projects'));
+}
+
 const updateTasks = (arr) => {
   localStorage.setItem('tasks', JSON.stringify(arr));
 }
@@ -25,7 +29,7 @@ const displayTasks = () => {
       <p>${task.desc}</p>
       <p>${task.priority}</p>
       <p>${task.date}</p>
-      <button type='button' onClick='deleteTask(${index})'>Delete</button>
+      <p>${task.project}</p>
     </div>`
   )).join('\n');
   document.querySelector('#tasks-container').innerHTML = p;
@@ -44,7 +48,7 @@ const addNewTask = (name, desc, date, priority, project) => {
 }
 
 // Defining this function as a global function
-window.deleteTask = deleteTask = (id) => {
+const deleteTask = (id) => {
   const temp = updatedTasks();
   temp.splice(id, 1);
   updateTasks(temp);
@@ -66,7 +70,8 @@ const editTask = () => {
 }
 
 const openEdit = (id) => {
-  const temp = updatedTasks();
+  const tempTasks = updatedTasks();
+  const tempProjects = updatedProjects();
 
   const contentDiv = document.querySelector('#content');
 
@@ -82,23 +87,39 @@ const openEdit = (id) => {
   closeBtn.innerText = 'X';
 
   const taskNameInput = document.createElement('input');
-  taskNameInput.value = temp[id].name;
+  taskNameInput.value = tempTasks[id].name;
 
   const taskDescInput = document.createElement('input');
-  taskDescInput.value = temp[id].desc;
+  taskDescInput.value = tempTasks[id].desc;
 
   const taskDateInput = document.createElement('input');
   taskDateInput.type = 'date';
-  taskDateInput.value = temp[id].date;
+  taskDateInput.value = tempTasks[id].date;
 
   const taskPriorityInput = document.createElement('select');
+  const optionOne = document.createElement('option');
+  optionOne.innerText = 'Normal';
+  const optionTwo = document.createElement('option');
+  optionTwo.innerText = 'Urgent';
+  const optionThree = document.createElement('option');
+  optionThree.innerText = 'Later';
+  taskPriorityInput.append(optionOne, optionTwo, optionThree);
+  taskPriorityInput.value = tempTasks[id].priority;
 
   const taskProjectInput = document.createElement('select');
+  for(let i = 0; i < tempProjects.length; i += 1) {
+    const projectOption = document.createElement('option');
+    projectOption.innerText = tempProjects[i].name;
+    taskProjectInput.append(projectOption)
+  }
+  taskProjectInput.value = tempTasks[id].project
 
+  modalContent.appendChild(taskProjectInput);
+  modalContent.appendChild(taskPriorityInput);
   modalContent.appendChild(taskDateInput);
   modalContent.appendChild(taskDescInput);
-  modalContent.appendChild(taskName);
-  
+  modalContent.appendChild(taskNameInput);
+
   modalContent.appendChild(closeBtn);
   modalWrapper.appendChild(modalContent);
   contentDiv.appendChild(modalWrapper);
@@ -110,10 +131,18 @@ const openEdit = (id) => {
     openModal.style.display = 'none';
     modalWrapper.remove()
   }
+
+  const deleteBtn = document.createElement('button');
+  deleteBtn.type = 'button';
+  deleteBtn.innerText = 'Delete';
+  modalContent.appendChild(deleteBtn);
+  deleteBtn.addEventListener('click', () => {
+    deleteTask(id);
+    modalWrapper.remove()
+  })
 }
 
 window.saveTask = saveTask = () => {
-
 }
 
 const validateInput = (id) => {
