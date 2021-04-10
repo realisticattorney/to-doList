@@ -1,3 +1,7 @@
+const displayAll = (arr) => {
+  
+}
+
 const displayFiltered = (arr) => {
   if(arr.length === 0) {
     document.querySelector('#tasks-container').innerHTML = '<h2>No tasks created</h2>'
