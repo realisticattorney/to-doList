@@ -29,7 +29,7 @@ const addProjectsToSelection = () => {
   const selectProject = document.querySelector('#task-project')
   const mappingProjects = temp.map(project => (
     `<option id='${project.name}'>${project.name}</option>`
-  ))
+  ));
   selectProject.innerHTML = mappingProjects;
 }
 
@@ -37,9 +37,9 @@ const projectCreation = () => {
   projectBtn.addEventListener('click', () => {
     if (!validateInput(projectName)) {
       addNewProject(projectName.value);
-      displayProjects()
-      addProjectsToSelection()
-      filteringBtns()
+      displayProjects();
+      addProjectsToSelection();
+      filteringBtns();
     }
   });
 }

@@ -13,13 +13,9 @@ const createTask = (name, desc, date, priority, project) => {
 
 const displayTasks = () => {
   const temp = updatedTasks();
-  const p = temp.map((task, index) => (
+  const p = temp.map(task => (
     `<div class='singleTask'>
       <h3>${task.name}</h3>
-      <p>${task.desc}</p>
-      <p>${task.priority}</p>
-      <p>${task.date}</p>
-      <p>${task.project}</p>
     </div>`
   )).join('\n');
   document.querySelector('#tasks-container').innerHTML = p;
@@ -37,7 +33,6 @@ const addNewTask = (name, desc, date, priority, project) => {
   taskPriority.value = "";
 }
 
-// Defining this function as a global function
 const deleteTask = (id) => {
   const temp = updatedTasks();
   temp.splice(id, 1);
@@ -104,9 +99,9 @@ const openEdit = (id) => {
   for(let i = 0; i < tempProjects.length; i += 1) {
     const projectOption = document.createElement('option');
     projectOption.innerText = tempProjects[i].name;
-    taskProjectInput.append(projectOption)
+    taskProjectInput.append(projectOption);
   }
-  taskProjectInput.value = tempTasks[id].project
+  taskProjectInput.value = tempTasks[id].project;
   taskProjectInput.id = 'editingProject';
 
   modalContent.appendChild(taskProjectInput);
@@ -124,7 +119,7 @@ const openEdit = (id) => {
 
   closeBtn.onclick = () => {
     openModal.style.display = 'none';
-    modalWrapper.remove()
+    modalWrapper.remove();
   }
 
   const deleteBtn = document.createElement('button');
@@ -133,7 +128,7 @@ const openEdit = (id) => {
   modalContent.appendChild(deleteBtn);
   deleteBtn.addEventListener('click', () => {
     deleteTask(id);
-    modalWrapper.remove()
+    modalWrapper.remove();
   })
 
   const saveBtn = document.createElement('button');
@@ -160,13 +155,11 @@ const saveTask = (id) => {
   displayTasks();
 }
 
-
-
 const taskCreation = () => {
   taskBtn.addEventListener('click', () => {
     if (!validateInput(taskName)) {
       addNewTask(taskName.value, taskDesc.value, taskDate.value, taskPriority.value, taskProject.value);
-      displayTasks()
+      displayTasks();
     }
   })
 }
