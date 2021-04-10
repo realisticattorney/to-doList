@@ -46,6 +46,6 @@ const filteringBtns = () => {
 }
 
 
-module.exports = {
+export {
   filteringBtns
 }

@@ -1,3 +1,5 @@
+import { updatedTasks, updatedProjects, updateTasks, validateInput } from './utils';
+
 const taskName = document.querySelector('#task-name');
 const taskDesc = document.querySelector('#task-desc');
 const taskDate = document.querySelector('#task-date');
@@ -7,18 +9,6 @@ const taskBtn = document.querySelector('#task-btn');
 
 const createTask = (name, desc, date, priority, project) => {
   return { name, desc, date, priority, project };
-}
-
-const updatedTasks = () => {
-  return JSON.parse(localStorage.getItem('tasks'));
-}
-
-const updatedProjects = () => {
-  return JSON.parse(localStorage.getItem('projects'));
-}
-
-const updateTasks = (arr) => {
-  localStorage.setItem('tasks', JSON.stringify(arr));
 }
 
 const displayTasks = () => {
@@ -170,12 +160,7 @@ const saveTask = (id) => {
   displayTasks();
 }
 
-const validateInput = (id) => {
-  if(id.value === null || id.value === "") {
-    alert('Please fill the required fields');
-    return true;
-  }
-}
+
 
 const taskCreation = () => {
   taskBtn.addEventListener('click', () => {
@@ -186,7 +171,7 @@ const taskCreation = () => {
   })
 }
 
-module.exports = {
+export {
   taskCreation,
   displayTasks,
 };
