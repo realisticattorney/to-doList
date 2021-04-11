@@ -11,12 +11,15 @@ const createTask = (name, desc, date, priority, project) => {
   return { name, desc, date, priority, project };
 }
 
-const displayTasks = (arg) => {
+const displayTasks = () => {
   const tasksArr = updatedTasks();
   const p = tasksArr.map(task => (
-    `<div class='singleTask'>
-      <h3>${task.name}</h3>
-    </div>`
+    `<div class='singleTask d-flex'>
+      <div>
+        <h3>${task.name}</h3>
+        <p>${task.date.slice(5)}</p>
+        </div>
+      </div>`
   )).join('\n');
   document.querySelector('#tasks-container').innerHTML = p;
   editTask();
@@ -60,9 +63,9 @@ const expandTask = () => {
 const editTask = () => {
   const tasks = document.querySelectorAll('.singleTask');
   for(let i = 0; i < tasks.length; i += 1){
-    const editBtn = document.createElement('button');
-    editBtn.innerText = 'Edit';
-    editBtn.type = 'button';
+    const editBtn = document.createElement('span');
+    editBtn.innerText = 'edit';
+    editBtn.classList.add('material-icons', 'editTaskBtn');
     editBtn.addEventListener('click', () => {
       openEdit(i);
     });
