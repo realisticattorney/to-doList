@@ -26,5 +26,5 @@ export {
   updatedProjects,
   updateTasks,
   updatedTasks,
-  validateInput
+  validateInput,
 }

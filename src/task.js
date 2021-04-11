@@ -40,6 +40,19 @@ const deleteTask = (id) => {
   displayTasks();
 }
 
+const openTaskModal = () => {
+  const button = document.querySelector('#openTaskModal');
+  const modal = document.querySelector('.taskModal');
+  button.addEventListener('click', () => {
+    modal.style.display = 'block'
+  })
+
+  const close = document.querySelector('.closeTask');
+  close.addEventListener('click', () => {
+    modal.style.display = 'none';
+  })
+}
+
 const expandTask = () => {
 
 }
@@ -171,4 +184,5 @@ export {
   taskCreation,
   displayTasks,
   editTask,
+  openTaskModal,
 };

@@ -44,9 +44,23 @@ const projectCreation = () => {
   });
 }
 
+const openProjectModal = () => {
+  const button = document.querySelector('#openProjectModal');
+  const modal = document.querySelector('.projectModal');
+  button.addEventListener('click', () => {
+    modal.style.display = 'block';
+  })
+
+  const close = document.querySelector('.closeProject');
+  close.addEventListener('click', () => {
+    modal.style.display = 'none';
+  })
+}
+
 export {
   displayProjects,
   projectCreation,
   updatedProjects,
   addProjectsToSelection,
+  openProjectModal,
 };
