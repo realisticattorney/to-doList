@@ -4,7 +4,7 @@ import { updateProjects, updatedProjects, validateInput } from './utils';
 const projectBtn = document.querySelector('#project-btn');
 const projectName = document.querySelector('#new-project');
 
-const createProject = (name) => name ;
+const createProject = (name) => name;
 
 const displayProjects = () => {
   const arr = updatedProjects();

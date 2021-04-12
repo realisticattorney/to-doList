@@ -1,4 +1,6 @@
-import { updatedTasks, updatedProjects, updateTasks, validateInput, displayAll } from './utils';
+import {
+  updatedTasks, updatedProjects, updateTasks, validateInput, displayAll
+} from './utils';
 
 const taskName = document.querySelector('#task-name');
 const taskDesc = document.querySelector('#task-desc');
@@ -8,39 +10,39 @@ const taskProject = document.querySelector('#task-project');
 const taskBtn = document.querySelector('#task-btn');
 
 const createTask = (name, desc, date, priority, project) => {
-  return { name, desc, date, priority, project };
-}
+    name, desc, date, priority, project
+};
 
 const addNewTask = (name, desc, date, priority, project) => {
   const item = createTask(name, desc, date, priority, project);
   const temp = updatedTasks();
   temp.push(item);
   updateTasks(temp);
-  taskName.value = "";
-  taskDesc.value = "";
-  taskDate.value = "";
-  taskPriority.value = "";
-}
+  taskName.value = '';
+  taskDesc.value = '';
+  taskDate.value = '';
+  taskPriority.value = '';
+};
 
 const deleteTask = (id) => {
   const tasksArr = updatedTasks();
   tasksArr.splice(id, 1);
   updateTasks(tasksArr);
   displayAll();
-}
+};
 
 const openTaskModal = () => {
   const button = document.querySelector('#openTaskModal');
   const modal = document.querySelector('.taskModal');
   button.addEventListener('click', () => {
-    modal.style.display = 'block'
-  })
+    modal.style.display = 'block';
+  });
 
   const close = document.querySelector('.closeTask');
   close.addEventListener('click', () => {
     modal.style.display = 'none';
-  })
-}
+  });
+};
 
 const openEdit = (id) => {
   const tempTasks = updatedTasks();
@@ -84,7 +86,7 @@ const openEdit = (id) => {
   taskPriorityInput.id = 'editingPriority';
 
   const taskProjectInput = document.createElement('select');
-  for(let i = 0; i < tempProjects.length; i += 1) {
+  for (let i = 0; i < tempProjects.length; i += 1) {
     const projectOption = document.createElement('option');
     projectOption.innerText = tempProjects[i].name;
     taskProjectInput.append(projectOption);
@@ -108,7 +110,7 @@ const openEdit = (id) => {
   closeBtn.onclick = () => {
     openModal.style.display = 'none';
     modalWrapper.remove();
-  }
+  };
 
   const deleteBtn = document.createElement('button');
   deleteBtn.type = 'button';
@@ -117,7 +119,7 @@ const openEdit = (id) => {
   deleteBtn.addEventListener('click', () => {
     deleteTask(id);
     modalWrapper.remove();
-  })
+  });
 
   const saveBtn = document.createElement('button');
   saveBtn.type = 'button';
@@ -125,9 +127,9 @@ const openEdit = (id) => {
   modalContent.appendChild(saveBtn);
   saveBtn.addEventListener('click', () => {
     saveTask(id);
-    modalWrapper.remove(); 
-  })
-}
+    modalWrapper.remove();
+  });
+};
 
 const saveTask = (id) => {
   const editingName = document.querySelector('#editingName');
@@ -136,24 +138,28 @@ const saveTask = (id) => {
   const editingPriority = document.querySelector('#editingPriority');
   const editingProject = document.querySelector('#editingProject');
 
-  const editedTask = createTask(editingName.value, editingDesc.value, editingDate.value, editingPriority.value, editingProject.value);
+  const editedTask = createTask(
+    editingName.value, editingDesc.value, editingDate.value, editingPriority.value, editingProject.value
+  );
   const tempTasks = updatedTasks();
   tempTasks[id] = editedTask;
   updateTasks(tempTasks);
   displayAll();
-}
+};
 
 const taskCreation = () => {
   taskBtn.addEventListener('click', () => {
     if (!validateInput(taskName)) {
-      addNewTask(taskName.value, taskDesc.value, taskDate.value, taskPriority.value, taskProject.value);
+      addNewTask(
+        taskName.value, taskDesc.value, taskDate.value, taskPriority.value, taskProject.value
+      );
       displayAll();
     }
-  })
-}
+  });
+};
 
 export {
   taskCreation,
   openTaskModal,
-  openEdit
+  openEdit,
 };
