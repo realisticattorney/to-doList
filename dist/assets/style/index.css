@@ -48,7 +48,8 @@ body {
   margin-bottom: 10px;
 }
 
-.projectBtn {
+.projectBtn,
+.extraBtn {
   border: none;
   text-align: start;
   border-radius: 10px;
@@ -63,7 +64,10 @@ body {
 
 .projectBtn:hover,
 .projectBtn:active,
-.projectBtn:focus {
+.projectBtn:focus,
+.extraBtn:hover,
+.extraBtn:active,
+.extraBtn:focus {
   cursor: pointer;
   border: none;
   outline: none;

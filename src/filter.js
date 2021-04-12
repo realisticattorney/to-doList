@@ -1,4 +1,4 @@
-import { editTask } from './task';
+import { editTask, expandBtn, expandAction } from './task';
 import { updatedTasks } from './utils';
 
 const date = new Date();
@@ -6,45 +6,93 @@ const date = new Date();
 const displayAll = () => {
   const tasksArr = updatedTasks();
   const p = tasksArr.map(task => (
-    `<div class='singleTask d-flex'>
-      <div>
-        <h3>${task.name}</h3>
-        <p>${task.date.slice(5)}</p>
+    `<div class='d-flex f-column taskWrapper'>
+      <div class='singleTask d-flex'>
+        <div>
+            <h3>${task.name}</h3>
+            <p>${task.date.slice(5)}</p>
         </div>
-      </div>`
+      </div>
+      <div class='hiddenItems'>
+        <p>${task.desc}</p>
+        <p>${task.priority}</p>
+        <p>${task.project}</p>
+      </div>
+    </div>`
   )).join('\n');
   document.querySelector('#tasks-container').innerHTML = p;
   editTask();
+  expandBtn();
+  expandAction();
 }
-// Not working
+
+const allAction = () => {
+  const allBtn = document.querySelector('#allBtn');
+  allBtn.addEventListener('click', () => {
+    displayAll();
+  })
+}
+
 const displayPast = () => {
   const tasksArr = updatedTasks();
-  const filteredArr = tasksArr.filter(task => parseInt(task.date.slice(8)) < date.getDate());
+  const filteredArr = tasksArr.filter(task => task.date.slice(8) < date.getDate().toString() && task.date.slice(5,7) < (date.getMonth() + 1).toString() || task.date.slice(0,4) < date.getFullYear());
   const p = filteredArr.map(task => (
-    `<div class='singleTask d-flex'>
-      <div>
-        <h3>${task.name}</h3>
-        <p>${task.date.slice(5)}</p>
+    `<div class='d-flex f-column taskWrapper'>
+      <div class='singleTask d-flex'>
+        <div>
+            <h3>${task.name}</h3>
+            <p>${task.date.slice(5)}</p>
         </div>
-      </div>`
+      </div>
+      <div class='hiddenItems'>
+        <p>${task.desc}</p>
+        <p>${task.priority}</p>
+        <p>${task.project}</p>
+      </div>
+    </div>`
   )).join('\n');
   document.querySelector('#tasks-container').innerHTML = p;
   editTask();
+  expandBtn();
+  expandAction();
+}
+
+const pastAction = () => {
+  const pastBtn = document.querySelector('#pastBtn');
+  pastBtn.addEventListener('click', () => {
+    displayPast();
+  })
 }
 
 const displayToday = () => {
   const tasksArr = updatedTasks();
-  const filteredArr = tasksArr.filter(task => task.date.slice(8) === date.getDate());
+  const filteredArr = tasksArr.filter(task => task.date.slice(8) === date.getDate().toString());
   const p = filteredArr.map(task => (
-    `<div class='singleTask d-flex'>
-      <div>
-        <h3>${task.name}</h3>
-        <p>${task.date.slice(5)}</p>
+    `<div class='d-flex f-column taskWrapper'>
+      <div class='singleTask d-flex'>
+        <div>
+            <h3>${task.name}</h3>
+            <p>${task.date.slice(5)}</p>
         </div>
-      </div>`
+      </div>
+      <div class='hiddenItems'>
+        <p>${task.desc}</p>
+        <p>${task.priority}</p>
+        <p>${task.project}</p>
+      </div>
+    </div>`
   )).join('\n');
   document.querySelector('#tasks-container').innerHTML = p;
   editTask();
+  expandBtn();
+  expandAction();
+}
+
+const todayAction = () => {
+  const todayBtn = document.querySelector('#todayBtn');
+  todayBtn.addEventListener('click', () => {
+    displayToday();
+  })
 }
 
 const displayFiltered = (arr) => {
@@ -84,6 +132,7 @@ const filteringBtns = () => {
 
 export {
   filteringBtns,
-  displayToday,
-  displayPast,
+  todayAction,
+  pastAction,
+  allAction
 }

@@ -1,6 +1,6 @@
 import { displayProjects, projectCreation, addProjectsToSelection, openProjectModal } from './project';
 import { taskCreation, displayTasks, openTaskModal } from './task';
-import { filteringBtns } from './filter';
+import { filteringBtns, pastAction, todayAction, allAction } from './filter';
 
 window.addEventListener('load', () => {
 
@@ -19,4 +19,7 @@ window.addEventListener('load', () => {
   filteringBtns();
   openProjectModal();
   openTaskModal();
+  pastAction();
+  todayAction();
+  allAction();
 })

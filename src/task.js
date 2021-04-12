@@ -220,4 +220,6 @@ export {
   displayTasks,
   editTask,
   openTaskModal,
+  expandBtn,
+  expandAction
 };
