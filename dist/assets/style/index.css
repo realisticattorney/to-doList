@@ -230,3 +230,8 @@ body {
   cursor: pointer;
   opacity: 0.5;
 }
+
+.showTaskBtn:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}

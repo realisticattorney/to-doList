@@ -65,7 +65,6 @@ const filteringBtns = () => {
   }
 }
 
-
 export {
   displayAll,
   filteringBtns,

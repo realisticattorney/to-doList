@@ -49,8 +49,8 @@ const expandBtn = () => {
   const tasks = document.querySelectorAll('.singleTask');
   for(let i = 0; i < tasks.length; i += 1){
     const hidden = document.createElement('span');
-    hidden.innerText = 'show';
-    hidden.classList.add('showTaskBtn');
+    hidden.innerText = 'visibility';
+    hidden.classList.add('showTaskBtn', 'material-icons');
     tasks[i].appendChild(hidden);
   }
 }
@@ -62,10 +62,12 @@ const expandAction = () => {
     hiddenBtns[i].addEventListener('click', () => {
       const displayItems = tasks[i].nextElementSibling;
       if(displayItems.style.display === 'block') {
-        hiddenBtns[i].innerText = 'show'
+        hiddenBtns[i].innerText = 'visibility';
+        hiddenBtns[i].classList.add('material-icons') ;
         displayItems.style.display = 'none';
       } else {
-        hiddenBtns[i].innerText = 'hide'
+        hiddenBtns[i].innerText = 'visibility_off'
+        hiddenBtns[i].classList.add('material-icons') ;
         displayItems.style.display = 'block'
       }
     })
