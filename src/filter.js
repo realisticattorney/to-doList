@@ -60,7 +60,11 @@ const filteringBtns = () => {
       const tasks = JSON.parse(localStorage.getItem('tasks'));
 
       const filteredTasks = tasks.filter((task) => {
-        (task.project === projectBtns[i].innerText)
+        if (task.project === projectBtns[i].innerText) {
+          return task;
+        } else {
+          return null;
+        }
       });
       displayFiltered(filteredTasks);
     });
