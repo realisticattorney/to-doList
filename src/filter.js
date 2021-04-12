@@ -17,9 +17,10 @@ const allAction = () => {
 const displayPast = () => {
   const tasksArr = updatedTasks();
   const filteredArr = tasksArr.filter(
-    (task) => task.date.slice(8) < date.getDate().toString() 
-    && task.date.slice(5, 7) < (date.getMonth() + 1).toString() 
-    || task.date.slice(0, 4) < date.getFullYear());
+    (task) => task.date.slice(8) < date.getDate().toString()
+    || task.date.slice(5, 7) < (date.getMonth() + 1).toString()
+    || task.date.slice(0, 4) < date.getFullYear()
+    );
   displayArrOfTasks(filteredArr);
 };
 
@@ -27,7 +28,7 @@ const pastAction = () => {
   const pastBtn = document.querySelector('#pastBtn');
   pastBtn.addEventListener('click', () => {
     displayPast();
-  })
+  });
 };
 
 const displayToday = () => {
@@ -40,13 +41,13 @@ const todayAction = () => {
   const todayBtn = document.querySelector('#todayBtn');
   todayBtn.addEventListener('click', () => {
     displayToday();
-  })
+  });
 };
 
 const displayFiltered = (arr) => {
   if (arr.length === 0) {
-    document.querySelector('#tasks-container').innerHTML = '<h2>No tasks created</h2>'
-    return
+    document.querySelector('#tasks-container').innerHTML = '<h2>No tasks created</h2>';
+    return;
   }
   displayArrOfTasks(arr);
 };
@@ -60,11 +61,13 @@ const filteringBtns = () => {
 
       const filteredTasks = tasks.filter((task) => {
         if (task.project === projectBtns[i].innerText) {
-          return task
+          return task;
         }
-      })
-      displayFiltered(filteredTasks)
-    })
+        return
+      });
+      displayFiltered(filteredTasks);
+      return
+    });
   }
 };
 
@@ -73,5 +76,5 @@ export {
   filteringBtns,
   todayAction,
   pastAction,
-  allAction
+  allAction,
 };
