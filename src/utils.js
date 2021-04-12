@@ -1,30 +1,27 @@
-import { openEdit } from './task'
+import { openEdit } from './task';
 
 const updatedTasks = () => {
   return JSON.parse(localStorage.getItem('tasks'));
-}
+};
 
 const updateTasks = (arr) => {
   localStorage.setItem('tasks', JSON.stringify(arr));
-}
+};
 
-const updatedProjects = () => {
-  return JSON.parse(localStorage.getItem('projects'));
-}
+const updatedProjects = () => { return JSON.parse(localStorage.getItem('projects')) };
 
-const updateProjects = (arr) => {
-  localStorage.setItem('projects', JSON.stringify(arr));
-}
+const updateProjects = (arr) => { localStorage.setItem('projects', JSON.stringify(arr)) };
 
 const validateInput = (id) => {
-  if(id.value === null || id.value === "") {
+  if (id.value === null || id.value === '') {
     alert('Please fill the required fields');
     return true;
   }
-}
+  return false;
+};
 
 const displayArrOfTasks = (arr) => {
-  const p = arr.map(task => (
+  const p = arr.map((task) => (
     `<div class='d-flex f-column taskWrapper'>
       <div class='singleTask d-flex'>
         <div>
@@ -43,40 +40,40 @@ const displayArrOfTasks = (arr) => {
   editTask();
   expandBtn();
   expandAction();
-}
+};
 
 const expandBtn = () => {
   const tasks = document.querySelectorAll('.singleTask');
-  for(let i = 0; i < tasks.length; i += 1){
+  for (let i = 0; i < tasks.length; i += 1){
     const hidden = document.createElement('span');
     hidden.innerText = 'visibility';
     hidden.classList.add('showTaskBtn', 'material-icons');
     tasks[i].appendChild(hidden);
   }
-}
+};
 
 const expandAction = () => {
   const tasks = document.querySelectorAll('.singleTask');
-  for (let i = 0; i < tasks.length; i++) {
+  for (let i = 0; i < tasks.length; i += 1) {
     const hiddenBtns = document.querySelectorAll('.showTaskBtn');
     hiddenBtns[i].addEventListener('click', () => {
       const displayItems = tasks[i].nextElementSibling;
-      if(displayItems.style.display === 'block') {
+      if (displayItems.style.display === 'block') {
         hiddenBtns[i].innerText = 'visibility';
-        hiddenBtns[i].classList.add('material-icons') ;
+        hiddenBtns[i].classList.add('material-icons');
         displayItems.style.display = 'none';
       } else {
-        hiddenBtns[i].innerText = 'visibility_off'
-        hiddenBtns[i].classList.add('material-icons') ;
-        displayItems.style.display = 'block'
+        hiddenBtns[i].innerText = 'visibility_off';
+        hiddenBtns[i].classList.add('material-icons');
+        displayItems.style.display = 'block';
       }
-    })
+    });
   }
-}
+};
 
 const editTask = () => {
   const tasks = document.querySelectorAll('.singleTask');
-  for(let i = 0; i < tasks.length; i += 1){
+  for (let i = 0; i < tasks.length; i += 1){
     const editBtn = document.createElement('span');
     editBtn.innerText = 'edit';
     editBtn.classList.add('material-icons', 'editTaskBtn');
@@ -85,7 +82,7 @@ const editTask = () => {
     });
     tasks[i].appendChild(editBtn);
   }
-}
+};
 
 export {
   updateProjects,
@@ -94,4 +91,4 @@ export {
   updatedTasks,
   validateInput,
   displayArrOfTasks,
-}
+};
