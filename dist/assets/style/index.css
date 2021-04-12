@@ -86,7 +86,18 @@ body {
   width: 500px;
   align-self: center;
   justify-content: space-between;
+}
+
+.taskWrapper {
   border-bottom: 1px solid grey;
+  width: 500px;
+  padding: 10px;
+  margin: 15px;
+  align-self: center;
+}
+
+.hiddenItems {
+  display: none;
 }
 
 .editTaskBtn:hover {

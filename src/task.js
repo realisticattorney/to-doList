@@ -14,15 +14,24 @@ const createTask = (name, desc, date, priority, project) => {
 const displayTasks = () => {
   const tasksArr = updatedTasks();
   const p = tasksArr.map(task => (
-    `<div class='singleTask d-flex'>
-      <div>
-        <h3>${task.name}</h3>
-        <p>${task.date.slice(5)}</p>
+    `<div class='d-flex f-column taskWrapper'>
+      <div class='singleTask d-flex'>
+        <div>
+            <h3>${task.name}</h3>
+            <p>${task.date.slice(5)}</p>
         </div>
-      </div>`
+      </div>
+      <div class='hiddenItems'>
+        <p>${task.desc}</p>
+        <p>${task.priority}</p>
+        <p>${task.project}</p>
+      </div>
+    </div>`
   )).join('\n');
   document.querySelector('#tasks-container').innerHTML = p;
   editTask();
+  expandBtn();
+  expandAction();
 }
 
 const addNewTask = (name, desc, date, priority, project) => {
@@ -56,8 +65,31 @@ const openTaskModal = () => {
   })
 }
 
-const expandTask = () => {
+const expandBtn = () => {
+  const tasks = document.querySelectorAll('.singleTask');
+  for(let i = 0; i < tasks.length; i += 1){
+    const hidden = document.createElement('span');
+    hidden.innerText = 'show';
+    hidden.classList.add('showTaskBtn');
+    tasks[i].appendChild(hidden);
+  }
+}
 
+const expandAction = () => {
+  const tasks = document.querySelectorAll('.singleTask');
+  for (let i = 0; i < tasks.length; i++) {
+    const hiddenBtns = document.querySelectorAll('.showTaskBtn');
+    hiddenBtns[i].addEventListener('click', () => {
+      const displayItems = tasks[i].nextElementSibling;
+      if(displayItems.style.display === 'block') {
+        hiddenBtns[i].innerText = 'show'
+        displayItems.style.display = 'none';
+      } else {
+        hiddenBtns[i].innerText = 'hide'
+        displayItems.style.display = 'block'
+      }
+    })
+  }
 }
 
 const editTask = () => {

@@ -1,15 +1,50 @@
 import { editTask } from './task';
+import { updatedTasks } from './utils';
 
-const displayAll = (arr) => {
-  
+const date = new Date();
+
+const displayAll = () => {
+  const tasksArr = updatedTasks();
+  const p = tasksArr.map(task => (
+    `<div class='singleTask d-flex'>
+      <div>
+        <h3>${task.name}</h3>
+        <p>${task.date.slice(5)}</p>
+        </div>
+      </div>`
+  )).join('\n');
+  document.querySelector('#tasks-container').innerHTML = p;
+  editTask();
 }
-
+// Not working
 const displayPast = () => {
-
+  const tasksArr = updatedTasks();
+  const filteredArr = tasksArr.filter(task => parseInt(task.date.slice(8)) < date.getDate());
+  const p = filteredArr.map(task => (
+    `<div class='singleTask d-flex'>
+      <div>
+        <h3>${task.name}</h3>
+        <p>${task.date.slice(5)}</p>
+        </div>
+      </div>`
+  )).join('\n');
+  document.querySelector('#tasks-container').innerHTML = p;
+  editTask();
 }
 
 const displayToday = () => {
-
+  const tasksArr = updatedTasks();
+  const filteredArr = tasksArr.filter(task => task.date.slice(8) === date.getDate());
+  const p = filteredArr.map(task => (
+    `<div class='singleTask d-flex'>
+      <div>
+        <h3>${task.name}</h3>
+        <p>${task.date.slice(5)}</p>
+        </div>
+      </div>`
+  )).join('\n');
+  document.querySelector('#tasks-container').innerHTML = p;
+  editTask();
 }
 
 const displayFiltered = (arr) => {
@@ -18,9 +53,12 @@ const displayFiltered = (arr) => {
     return
   }
   const p = arr.map(task => (
-    `<div class='singleTask'>
-      <h3>${task.name}</h3>
-    </div>`
+    `<div class='singleTask d-flex'>
+      <div>
+        <h3>${task.name}</h3>
+        <p>${task.date.slice(5)}</p>
+        </div>
+      </div>`
   )).join('\n');
   document.querySelector('#tasks-container').innerHTML = p;
   editTask();
@@ -45,5 +83,7 @@ const filteringBtns = () => {
 
 
 export {
-  filteringBtns
+  filteringBtns,
+  displayToday,
+  displayPast,
 }
