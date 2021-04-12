@@ -1,29 +1,10 @@
-import { editTask, expandBtn, expandAction } from './task';
-import { updatedTasks } from './utils';
+import { updatedTasks, displayArrOfTasks } from './utils';
 
 const date = new Date();
 
 const displayAll = () => {
   const tasksArr = updatedTasks();
-  const p = tasksArr.map(task => (
-    `<div class='d-flex f-column taskWrapper'>
-      <div class='singleTask d-flex'>
-        <div>
-            <h3>${task.name}</h3>
-            <p>${task.date.slice(5)}</p>
-        </div>
-      </div>
-      <div class='hiddenItems'>
-        <p>${task.desc}</p>
-        <p>${task.priority}</p>
-        <p>${task.project}</p>
-      </div>
-    </div>`
-  )).join('\n');
-  document.querySelector('#tasks-container').innerHTML = p;
-  editTask();
-  expandBtn();
-  expandAction();
+  displayArrOfTasks(tasksArr);
 }
 
 const allAction = () => {
@@ -36,25 +17,7 @@ const allAction = () => {
 const displayPast = () => {
   const tasksArr = updatedTasks();
   const filteredArr = tasksArr.filter(task => task.date.slice(8) < date.getDate().toString() && task.date.slice(5,7) < (date.getMonth() + 1).toString() || task.date.slice(0,4) < date.getFullYear());
-  const p = filteredArr.map(task => (
-    `<div class='d-flex f-column taskWrapper'>
-      <div class='singleTask d-flex'>
-        <div>
-            <h3>${task.name}</h3>
-            <p>${task.date.slice(5)}</p>
-        </div>
-      </div>
-      <div class='hiddenItems'>
-        <p>${task.desc}</p>
-        <p>${task.priority}</p>
-        <p>${task.project}</p>
-      </div>
-    </div>`
-  )).join('\n');
-  document.querySelector('#tasks-container').innerHTML = p;
-  editTask();
-  expandBtn();
-  expandAction();
+  displayArrOfTasks(filteredArr);
 }
 
 const pastAction = () => {
@@ -67,25 +30,7 @@ const pastAction = () => {
 const displayToday = () => {
   const tasksArr = updatedTasks();
   const filteredArr = tasksArr.filter(task => task.date.slice(8) === date.getDate().toString());
-  const p = filteredArr.map(task => (
-    `<div class='d-flex f-column taskWrapper'>
-      <div class='singleTask d-flex'>
-        <div>
-            <h3>${task.name}</h3>
-            <p>${task.date.slice(5)}</p>
-        </div>
-      </div>
-      <div class='hiddenItems'>
-        <p>${task.desc}</p>
-        <p>${task.priority}</p>
-        <p>${task.project}</p>
-      </div>
-    </div>`
-  )).join('\n');
-  document.querySelector('#tasks-container').innerHTML = p;
-  editTask();
-  expandBtn();
-  expandAction();
+  displayArrOfTasks(filteredArr);
 }
 
 const todayAction = () => {
@@ -100,16 +45,7 @@ const displayFiltered = (arr) => {
     document.querySelector('#tasks-container').innerHTML = '<h2>No tasks created</h2>'
     return
   }
-  const p = arr.map(task => (
-    `<div class='singleTask d-flex'>
-      <div>
-        <h3>${task.name}</h3>
-        <p>${task.date.slice(5)}</p>
-        </div>
-      </div>`
-  )).join('\n');
-  document.querySelector('#tasks-container').innerHTML = p;
-  editTask();
+  displayArrOfTasks(arr);
 }
 
 const filteringBtns = () => {
@@ -131,6 +67,7 @@ const filteringBtns = () => {
 
 
 export {
+  displayAll,
   filteringBtns,
   todayAction,
   pastAction,

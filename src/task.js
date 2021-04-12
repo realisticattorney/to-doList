@@ -1,4 +1,4 @@
-import { updatedTasks, updatedProjects, updateTasks, validateInput } from './utils';
+import { updatedTasks, updatedProjects, updateTasks, validateInput, displayAll } from './utils';
 
 const taskName = document.querySelector('#task-name');
 const taskDesc = document.querySelector('#task-desc');
@@ -9,29 +9,6 @@ const taskBtn = document.querySelector('#task-btn');
 
 const createTask = (name, desc, date, priority, project) => {
   return { name, desc, date, priority, project };
-}
-
-const displayTasks = () => {
-  const tasksArr = updatedTasks();
-  const p = tasksArr.map(task => (
-    `<div class='d-flex f-column taskWrapper'>
-      <div class='singleTask d-flex'>
-        <div>
-            <h3>${task.name}</h3>
-            <p>${task.date.slice(5)}</p>
-        </div>
-      </div>
-      <div class='hiddenItems'>
-        <p>${task.desc}</p>
-        <p>${task.priority}</p>
-        <p>${task.project}</p>
-      </div>
-    </div>`
-  )).join('\n');
-  document.querySelector('#tasks-container').innerHTML = p;
-  editTask();
-  expandBtn();
-  expandAction();
 }
 
 const addNewTask = (name, desc, date, priority, project) => {
@@ -49,7 +26,7 @@ const deleteTask = (id) => {
   const tasksArr = updatedTasks();
   tasksArr.splice(id, 1);
   updateTasks(tasksArr);
-  displayTasks();
+  displayAll();
 }
 
 const openTaskModal = () => {
@@ -63,46 +40,6 @@ const openTaskModal = () => {
   close.addEventListener('click', () => {
     modal.style.display = 'none';
   })
-}
-
-const expandBtn = () => {
-  const tasks = document.querySelectorAll('.singleTask');
-  for(let i = 0; i < tasks.length; i += 1){
-    const hidden = document.createElement('span');
-    hidden.innerText = 'show';
-    hidden.classList.add('showTaskBtn');
-    tasks[i].appendChild(hidden);
-  }
-}
-
-const expandAction = () => {
-  const tasks = document.querySelectorAll('.singleTask');
-  for (let i = 0; i < tasks.length; i++) {
-    const hiddenBtns = document.querySelectorAll('.showTaskBtn');
-    hiddenBtns[i].addEventListener('click', () => {
-      const displayItems = tasks[i].nextElementSibling;
-      if(displayItems.style.display === 'block') {
-        hiddenBtns[i].innerText = 'show'
-        displayItems.style.display = 'none';
-      } else {
-        hiddenBtns[i].innerText = 'hide'
-        displayItems.style.display = 'block'
-      }
-    })
-  }
-}
-
-const editTask = () => {
-  const tasks = document.querySelectorAll('.singleTask');
-  for(let i = 0; i < tasks.length; i += 1){
-    const editBtn = document.createElement('span');
-    editBtn.innerText = 'edit';
-    editBtn.classList.add('material-icons', 'editTaskBtn');
-    editBtn.addEventListener('click', () => {
-      openEdit(i);
-    });
-    tasks[i].appendChild(editBtn);
-  }
 }
 
 const openEdit = (id) => {
@@ -203,23 +140,20 @@ const saveTask = (id) => {
   const tempTasks = updatedTasks();
   tempTasks[id] = editedTask;
   updateTasks(tempTasks);
-  displayTasks();
+  displayAll();
 }
 
 const taskCreation = () => {
   taskBtn.addEventListener('click', () => {
     if (!validateInput(taskName)) {
       addNewTask(taskName.value, taskDesc.value, taskDate.value, taskPriority.value, taskProject.value);
-      displayTasks();
+      displayAll();
     }
   })
 }
 
 export {
   taskCreation,
-  displayTasks,
-  editTask,
   openTaskModal,
-  expandBtn,
-  expandAction
+  openEdit
 };
