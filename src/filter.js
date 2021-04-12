@@ -20,7 +20,7 @@ const displayPast = () => {
     (task) => task.date.slice(8) < date.getDate().toString()
     || task.date.slice(5, 7) < (date.getMonth() + 1).toString()
     || task.date.slice(0, 4) < date.getFullYear()
-    );
+  );
   displayArrOfTasks(filteredArr);
 };
 
@@ -60,13 +60,9 @@ const filteringBtns = () => {
       const tasks = JSON.parse(localStorage.getItem('tasks'));
 
       const filteredTasks = tasks.filter((task) => {
-        if (task.project === projectBtns[i].innerText) {
-          return task;
-        }
-        return
+        (task.project === projectBtns[i].innerText)
       });
       displayFiltered(filteredTasks);
-      return
     });
   }
 };
