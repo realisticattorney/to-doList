@@ -62,8 +62,6 @@ const filteringBtns = () => {
       const filteredTasks = tasks.filter((task) => {
         if (task.project === projectBtns[i].innerText) {
           return task;
-        } else {
-          return null;
         }
       });
       displayFiltered(filteredTasks);
