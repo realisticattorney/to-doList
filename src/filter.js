@@ -19,7 +19,8 @@ const displayPast = () => {
   const filteredArr = tasksArr.filter(
     (task) => task.date.slice(8) < date.getDate().toString()
     && task.date.slice(5, 7) < (date.getMonth() + 1).toString()
-    || task.date.slice(0, 4) < date.getFullYear());
+    || task.date.slice(0, 4) < date.getFullYear()
+  );
   displayArrOfTasks(filteredArr);
 };
 
@@ -32,7 +33,10 @@ const pastAction = () => {
 
 const displayToday = () => {
   const tasksArr = updatedTasks();
-  const filteredArr = tasksArr.filter((task) => task.date.slice(8) === date.getDate().toString() && task.date.slice(5, 7) === (date.getMonth() + 1).toString());
+  const filteredArr = tasksArr.filter(
+    (task) => task.date.slice(8) === date.getDate().toString() 
+    && task.date.slice(5, 7) === (date.getMonth() + 1).toString()
+  );
   displayArrOfTasks(filteredArr);
 };
 
