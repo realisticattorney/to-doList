@@ -135,3 +135,13 @@ const openEdit = (id) => {
     modalWrapper.remove();
   });
 };
+
+const expandBtn = () => {
+  const tasks = document.querySelectorAll('.singleTask');
+  for (let i = 0; i < tasks.length; i += 1) {
+    const hidden = document.createElement('span');
+    hidden.innerText = 'visibility';
+    hidden.classList.add('showTaskBtn', 'material-icons');
+    tasks[i].appendChild(hidden);
+  }
+};
