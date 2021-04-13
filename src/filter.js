@@ -40,3 +40,18 @@ const displayToday = () => {
   displayArrOfTasks(filteredArr);
 };
 /* eslint-enable  */
+
+const todayAction = () => {
+  const todayBtn = document.querySelector('#todayBtn');
+  todayBtn.addEventListener('click', () => {
+    displayToday();
+  });
+};
+
+const displayFiltered = (arr) => {
+  if (arr.length === 0) {
+    document.querySelector('#tasks-container').innerHTML = '<h2>No tasks created</h2>';
+    return;
+  }
+  displayArrOfTasks(arr);
+};
