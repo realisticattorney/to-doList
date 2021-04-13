@@ -9,7 +9,9 @@ const taskPriority = document.querySelector('#task-priority');
 const taskProject = document.querySelector('#task-project');
 const taskBtn = document.querySelector('#task-btn');
 
-const createTask = (name, desc, date, priority, project) => ({ name,desc,date,priority,project });
+const createTask = (name, desc, date, priority, project) => ({
+  name, desc, date, priority, project
+});
 
 const addNewTask = (name, desc, date, priority, project) => {
   const item = createTask(name, desc, date, priority, project);
@@ -22,7 +24,7 @@ const addNewTask = (name, desc, date, priority, project) => {
   taskPriority.value = '';
 };
 
-
+/* eslint-disable */
 const saveTask = (id) => {
   const editingName = document.querySelector('#editingName');
   const editingDesc = document.querySelector('#editingDesc');
@@ -37,15 +39,16 @@ const saveTask = (id) => {
   const tempTasks = updatedTasks();
   tempTasks[id] = editedTask;
   updateTasks(tempTasks);
-  displayArrOfTasks(updatedTasks())
+  displayArrOfTasks(updatedTasks());
 };
 
 const deleteTask = (id) => {
   const tasksArr = updatedTasks();
   tasksArr.splice(id, 1);
   updateTasks(tasksArr);
-  displayArrOfTasks(updatedTasks())
+  displayArrOfTasks(updatedTasks());
 };
+/* eslint-enable */
 
 const openEdit = (id) => {
   const tempTasks = updatedTasks();

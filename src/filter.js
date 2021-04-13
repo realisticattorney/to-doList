@@ -69,7 +69,7 @@ const filteringBtns = () => {
         if (task.project === projectBtns[i].innerText) {
           return task;
         }
-        return;
+        return true;
       });
       displayFiltered(filteredTasks);
     });
