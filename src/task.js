@@ -1,7 +1,11 @@
 import {
-  updatedTasks, updateTasks, validateInput,
+  updatedTasks, updatedProjects, updateTasks, validateInput,
 } from './utils';
-import { displayAll } from './filter';
+
+const displayAll = () => {
+  const tasksArr = updatedTasks();
+  displayArrOfTasks(tasksArr);
+};
 
 const taskName = document.querySelector('#task-name');
 const taskDesc = document.querySelector('#task-desc');
