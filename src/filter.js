@@ -1,4 +1,5 @@
-import { updatedTasks, displayArrOfTasks } from './utils';
+import { updatedTasks } from './utils';
+import { displayArrOfTasks } from './task';
 
 const date = new Date();
 
