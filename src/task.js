@@ -2,11 +2,6 @@ import {
   updatedTasks, updatedProjects, updateTasks, validateInput,
 } from './utils';
 
-const displayAll = () => {
-  const tasksArr = updatedTasks();
-  displayArrOfTasks(tasksArr);
-};
-
 const taskName = document.querySelector('#task-name');
 const taskDesc = document.querySelector('#task-desc');
 const taskDate = document.querySelector('#task-date');
@@ -14,15 +9,7 @@ const taskPriority = document.querySelector('#task-priority');
 const taskProject = document.querySelector('#task-project');
 const taskBtn = document.querySelector('#task-btn');
 
-const createTask = (name, desc, date, priority, project) => {
-  return {
-    name,
-    desc,
-    date,
-    priority,
-    project,
-  };
-};
+const createTask = (name, desc, date, priority, project) => ({ name,desc,date,priority,project });
 
 const addNewTask = (name, desc, date, priority, project) => {
   const item = createTask(name, desc, date, priority, project);
@@ -50,14 +37,14 @@ const saveTask = (id) => {
   const tempTasks = updatedTasks();
   tempTasks[id] = editedTask;
   updateTasks(tempTasks);
-  displayAll();
+  displayArrOfTasks(updatedTasks())
 };
 
 const deleteTask = (id) => {
   const tasksArr = updatedTasks();
   tasksArr.splice(id, 1);
   updateTasks(tasksArr);
-  displayAll();
+  displayArrOfTasks(updatedTasks())
 };
 
 const openEdit = (id) => {
@@ -230,7 +217,7 @@ const taskCreation = () => {
       addNewTask(
         taskName.value, taskDesc.value, taskDate.value, taskPriority.value, taskProject.value,
       );
-      displayAll();
+      displayArrOfTasks(updatedTasks());
     }
   });
 };
