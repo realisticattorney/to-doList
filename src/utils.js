@@ -1,14 +1,12 @@
 import { openEdit } from './task';
 
-const updatedTasks = () => {
-  return JSON.parse(localStorage.getItem('tasks'));
-};
+const updatedTasks = () => { JSON.parse(localStorage.getItem('tasks')) };
 
 const updateTasks = (arr) => {
   localStorage.setItem('tasks', JSON.stringify(arr));
 };
 
-const updatedProjects = () => { return JSON.parse(localStorage.getItem('projects')) };
+const updatedProjects = () => { JSON.parse(localStorage.getItem('projects')) };
 
 const updateProjects = (arr) => { localStorage.setItem('projects', JSON.stringify(arr)) };
 
@@ -20,31 +18,9 @@ const validateInput = (id) => {
   return false;
 };
 
-const displayArrOfTasks = (arr) => {
-  const p = arr.map((task) => (
-    `<div class='d-flex f-column taskWrapper'>
-      <div class='singleTask d-flex'>
-        <div>
-            <h3>${task.name}</h3>
-            <p>${task.date.slice(5)}</p>
-        </div>
-      </div>
-      <div class='hiddenItems'>
-        <p>${task.desc}</p>
-        <p>${task.priority}</p>
-        <p>${task.project}</p>
-      </div>
-    </div>`
-  )).join('\n');
-  document.querySelector('#tasks-container').innerHTML = p;
-  editTask();
-  expandBtn();
-  expandAction();
-};
-
 const expandBtn = () => {
   const tasks = document.querySelectorAll('.singleTask');
-  for (let i = 0; i < tasks.length; i += 1){
+  for (let i = 0; i < tasks.length; i += 1) {
     const hidden = document.createElement('span');
     hidden.innerText = 'visibility';
     hidden.classList.add('showTaskBtn', 'material-icons');
@@ -73,7 +49,7 @@ const expandAction = () => {
 
 const editTask = () => {
   const tasks = document.querySelectorAll('.singleTask');
-  for (let i = 0; i < tasks.length; i += 1){
+  for (let i = 0; i < tasks.length; i += 1) {
     const editBtn = document.createElement('span');
     editBtn.innerText = 'edit';
     editBtn.classList.add('material-icons', 'editTaskBtn');
@@ -82,6 +58,28 @@ const editTask = () => {
     });
     tasks[i].appendChild(editBtn);
   }
+};
+
+const displayArrOfTasks = (arr) => {
+  const p = arr.map((task) => (
+    `<div class='d-flex f-column taskWrapper'>
+      <div class='singleTask d-flex'>
+        <div>
+            <h3>${task.name}</h3>
+            <p>${task.date.slice(5)}</p>
+        </div>
+      </div>
+      <div class='hiddenItems'>
+        <p>${task.desc}</p>
+        <p>${task.priority}</p>
+        <p>${task.project}</p>
+      </div>
+    </div>`
+  )).join('\n');
+  document.querySelector('#tasks-container').innerHTML = p;
+  editTask();
+  expandBtn();
+  expandAction();
 };
 
 export {
