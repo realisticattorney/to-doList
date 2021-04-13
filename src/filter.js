@@ -34,7 +34,7 @@ const pastAction = () => {
 const displayToday = () => {
   const tasksArr = updatedTasks();
   const filteredArr = tasksArr.filter(
-    (task) => task.date.slice(8) === date.getDate().toString() 
+    (task) => task.date.slice(8) === date.getDate().toString()
     && task.date.slice(5, 7) === (date.getMonth() + 1).toString()
   );
   displayArrOfTasks(filteredArr);
