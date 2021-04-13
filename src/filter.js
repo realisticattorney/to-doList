@@ -3,12 +3,12 @@ import { displayArrOfTasks } from './task';
 
 const date = new Date();
 
-/* eslint disable */
+/* eslint-disable */
 const displayAll = () => {
   const tasksArr = updatedTasks();
   displayArrOfTasks(tasksArr);
 };
-/* eslint enable */
+/* eslint-enable */
 
 const allAction = () => {
   const allBtn = document.querySelector('#allBtn');
