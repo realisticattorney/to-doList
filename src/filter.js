@@ -63,9 +63,9 @@ const filteringBtns = () => {
     projectBtns[i].addEventListener('click', () => {
       const tasks = JSON.parse(localStorage.getItem('tasks'));
 
-      const filteredTasks = tasks.filter((task) => (      
-        task.project === projectBtns[i].innerText)
-      );
+      const filteredTasks = tasks.filter((task) => (
+        task.project === projectBtns[i].innerText
+      ));
       displayFiltered(filteredTasks);
     });
   }
