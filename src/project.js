@@ -40,11 +40,18 @@ const projectCreation = () => {
   });
 };
 
-const projectTags = document.querySelector('p')
+const openProjectModal = () => {
+  const button = document.querySelector('#openProjectModal');
+  const modal = document.querySelector('.projectModal');
+  button.addEventListener('click', () => {
+    modal.style.display = 'block';
+  });
 
-for(let pTags in projectTags) {
-  const delBtn = docum
-}
+  const close = document.querySelector('.closeProject');
+  close.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+};
 
 
 module.exports = {
