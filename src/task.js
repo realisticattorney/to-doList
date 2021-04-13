@@ -200,3 +200,16 @@ const displayArrOfTasks = (arr) => {
   expandBtn();
   expandAction();
 };
+
+const openTaskModal = () => {
+  const button = document.querySelector('#openTaskModal');
+  const modal = document.querySelector('.taskModal');
+  button.addEventListener('click', () => {
+    modal.style.display = 'block';
+  });
+
+  const close = document.querySelector('.closeTask');
+  close.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+};
