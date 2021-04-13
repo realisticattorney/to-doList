@@ -109,4 +109,29 @@ const openEdit = (id) => {
   modalContent.appendChild(closeBtn);
   modalWrapper.appendChild(modalContent);
   contentDiv.appendChild(modalWrapper);
-}
+  const openModal = document.querySelector('.modal');
+  openModal.style.display = 'block';
+
+  closeBtn.onclick = () => {
+    openModal.style.display = 'none';
+    modalWrapper.remove();
+  };
+
+  const deleteBtn = document.createElement('button');
+  deleteBtn.type = 'button';
+  deleteBtn.innerText = 'Delete';
+  modalContent.appendChild(deleteBtn);
+  deleteBtn.addEventListener('click', () => {
+    deleteTask(id);
+    modalWrapper.remove();
+  });
+
+  const saveBtn = document.createElement('button');
+  saveBtn.type = 'button';
+  saveBtn.innerText = 'Save';
+  modalContent.appendChild(saveBtn);
+  saveBtn.addEventListener('click', () => {
+    saveTask(id);
+    modalWrapper.remove();
+  });
+};
