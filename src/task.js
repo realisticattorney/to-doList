@@ -145,3 +145,22 @@ const expandBtn = () => {
     tasks[i].appendChild(hidden);
   }
 };
+
+const expandAction = () => {
+  const tasks = document.querySelectorAll('.singleTask');
+  for (let i = 0; i < tasks.length; i += 1) {
+    const hiddenBtns = document.querySelectorAll('.showTaskBtn');
+    hiddenBtns[i].addEventListener('click', () => {
+      const displayItems = tasks[i].nextElementSibling;
+      if (displayItems.style.display === 'block') {
+        hiddenBtns[i].innerText = 'visibility';
+        hiddenBtns[i].classList.add('material-icons');
+        displayItems.style.display = 'none';
+      } else {
+        hiddenBtns[i].innerText = 'visibility_off';
+        hiddenBtns[i].classList.add('material-icons');
+        displayItems.style.display = 'block';
+      }
+    });
+  }
+};
