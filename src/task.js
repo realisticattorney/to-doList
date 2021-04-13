@@ -224,3 +224,9 @@ const taskCreation = () => {
     }
   });
 };
+
+export {
+  taskCreation,
+  openTaskModal,
+  displayArrOfTasks,
+};
