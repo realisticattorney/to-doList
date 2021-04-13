@@ -1,9 +1,7 @@
 const projectBtn = document.querySelector('#project-btn');
 const projectName = document.querySelector('#new-project');
 
-const createProject = (name) => {
-  return { name };
-}
+const createProject = (name) => ({ name });
 
 const updatedProjects = () => {
   return JSON.parse(localStorage.getItem('projects'));
