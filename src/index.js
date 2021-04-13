@@ -20,6 +20,12 @@ window.addEventListener('load', () => {
   addProjectsToSelection();
   projectCreation();
   taskCreation();
+  filteringBtns();
+  openProjectModal();
+  openTaskModal();
+  pastAction();
+  todayAction();
+  allAction();
 });
 
 
