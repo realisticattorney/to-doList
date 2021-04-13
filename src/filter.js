@@ -8,14 +8,12 @@ const displayAll = () => {
   const tasksArr = updatedTasks();
   displayArrOfTasks(tasksArr);
 };
-/* eslint-enable */
 
 const allAction = () => {
   const allBtn = document.querySelector('#allBtn');
   allBtn.addEventListener('click', () => displayAll());
 };
 
-/* eslint-disable  */
 const displayPast = () => {
   const tasksArr = updatedTasks();
   const filteredArr = tasksArr.filter(
@@ -25,7 +23,6 @@ const displayPast = () => {
   );
   displayArrOfTasks(filteredArr);
 };
-/* eslint-enable  */
 
 const pastAction = () => {
   const pastBtn = document.querySelector('#pastBtn');
@@ -34,7 +31,6 @@ const pastAction = () => {
   });
 };
 
-/* eslint-disable  */
 const displayToday = () => {
   const tasksArr = updatedTasks();
   const filteredArr = tasksArr.filter(
@@ -71,7 +67,6 @@ const filteringBtns = () => {
         if (task.project === projectBtns[i].innerText) {
           return task;
         }
-        return true;
       });
       displayFiltered(filteredTasks);
     });
