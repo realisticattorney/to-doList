@@ -33,10 +33,12 @@ const projectCreation = () => {
   projectBtn.addEventListener('click', () => {
     if (!validateInput(projectName)) {
       addNewProject(projectName.value);
-      displayProjects()
+      displayProjects();
+      addProjectsToSelection();
+      filteringBtns();
     }
   });
-}
+};
 
 const projectTags = document.querySelector('p')
 
