@@ -54,7 +54,10 @@ const openProjectModal = () => {
 };
 
 
-module.exports = {
+export {
   displayProjects,
-  projectCreation
-}
+  projectCreation,
+  updatedProjects,
+  addProjectsToSelection,
+  openProjectModal,
+};
