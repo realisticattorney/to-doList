@@ -1,3 +1,6 @@
+import { filteringBtns } from './filter';
+import { updateProjects, updatedProjects, validateInput } from './utils';
+
 const projectBtn = document.querySelector('#project-btn');
 const projectName = document.querySelector('#new-project');
 
@@ -57,7 +60,6 @@ const openProjectModal = () => {
 export {
   displayProjects,
   projectCreation,
-  updatedProjects,
   addProjectsToSelection,
   openProjectModal,
 };
