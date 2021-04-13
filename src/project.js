@@ -3,14 +3,6 @@ const projectName = document.querySelector('#new-project');
 
 const createProject = (name) => ({ name });
 
-const updatedProjects = () => {
-  return JSON.parse(localStorage.getItem('projects'));
-}
-
-const updateProjects = (arr) => {
-  localStorage.setItem('projects', JSON.stringify(arr));
-}
-
 const displayProjects = () => {
   const arr = updatedProjects();
   const p = arr.map((project) => (
