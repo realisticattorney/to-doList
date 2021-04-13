@@ -55,3 +55,20 @@ const displayFiltered = (arr) => {
   }
   displayArrOfTasks(arr);
 };
+
+const filteringBtns = () => {
+  const projectBtns = document.querySelectorAll('.projectBtn');
+
+  for (let i = 0; i < projectBtns.length; i += 1) {
+    projectBtns[i].addEventListener('click', () => {
+      const tasks = JSON.parse(localStorage.getItem('tasks'));
+
+      const filteredTasks = tasks.filter((task) => (
+        task.project === projectBtns[i].innerText
+      ));
+      displayFiltered(filteredTasks);
+    });
+  }
+};
+
+
