@@ -19,6 +19,16 @@ const addNewProject = (name) => {
   projectName.value = '';
 };
 
+const addProjectsToSelection = () => {
+  const arr = updatedProjects();
+  const selectProject = document.querySelector('#task-project');
+  const mappingProjects = arr.map((project) => (
+    `<option id='${project.name}'>${project.name}</option>`
+  ));
+  selectProject.innerHTML = mappingProjects;
+};
+
+
 const projectCreation = () => {
   projectBtn.addEventListener('click', () => {
     if (!validateInput(projectName)) {
