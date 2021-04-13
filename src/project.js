@@ -19,13 +19,6 @@ const addNewProject = (name) => {
   projectName.value = "";
 }
 
-const validateInput = (id) => {
-  if(id.value === null || id.value === "") {
-    alert('Please fill the required fields');
-    return true;
-  }
-}
-
 const projectCreation = () => {
   projectBtn.addEventListener('click', () => {
     if (!validateInput(projectName)) {
