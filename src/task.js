@@ -51,7 +51,8 @@ const saveTask = (id) => {
   const editingProject = document.querySelector('#editingProject');
 
   const editedTask = createTask(
-    editingName.value, editingDesc.value, editingDate.value, editingPriority.value, editingProject.value
+    editingName.value, editingDesc.value, editingDate.value,
+    editingPriority.value, editingProject.value,
   );
   const tempTasks = updatedTasks();
   tempTasks[id] = editedTask;
@@ -150,7 +151,7 @@ const taskCreation = () => {
   taskBtn.addEventListener('click', () => {
     if (!validateInput(taskName)) {
       addNewTask(
-        taskName.value, taskDesc.value, taskDate.value, taskPriority.value, taskProject.value
+        taskName.value, taskDesc.value, taskDate.value, taskPriority.value, taskProject.value,
       );
       displayAll();
     }
