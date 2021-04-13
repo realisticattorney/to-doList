@@ -13,11 +13,11 @@ const displayProjects = () => {
 
 const addNewProject = (name) => {
   const item = createProject(name);
-  const temp = updatedProjects();
-  temp.push(item);
-  updateProjects(temp);
-  projectName.value = "";
-}
+  const arr = updatedProjects();
+  arr.push(item);
+  updateProjects(arr);
+  projectName.value = '';
+};
 
 const projectCreation = () => {
   projectBtn.addEventListener('click', () => {
