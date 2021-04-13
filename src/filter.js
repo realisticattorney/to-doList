@@ -3,16 +3,16 @@ import { displayArrOfTasks } from './task';
 
 const date = new Date();
 
+/* eslint disable */
 const displayAll = () => {
   const tasksArr = updatedTasks();
   displayArrOfTasks(tasksArr);
 };
+/* eslint enable */
 
 const allAction = () => {
   const allBtn = document.querySelector('#allBtn');
-  allBtn.addEventListener('click', () => {
-    displayAll();
-  });
+  allBtn.addEventListener('click', () => displayAll());
 };
 
 /* eslint-disable  */
@@ -37,8 +37,8 @@ const pastAction = () => {
 const displayToday = () => {
   const tasksArr = updatedTasks();
   const filteredArr = tasksArr.filter(
-    (task) => task.date.slice(8) === date.getDate().toString()
-    && task.date.slice(5, 7) === (date.getMonth() + 1).toString()
+    (task) => (task.date.slice(8) === date.getDate().toString()
+    && task.date.slice(5, 7) === (date.getMonth() + 1).toString())
   );
   displayArrOfTasks(filteredArr);
 };
@@ -68,9 +68,10 @@ const filteringBtns = () => {
       const filteredTasks = tasks.filter((task) => {
         if (task.project === projectBtns[i].innerText) {
           return task;
+        } else {
+          return []
         }
       });
-      console.log(filteredTasks)
       displayFiltered(filteredTasks);
     });
   }
