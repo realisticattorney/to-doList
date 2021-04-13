@@ -31,7 +31,6 @@ const addProjectsToSelection = () => {
   selectProject.innerHTML = mappingProjects;
 };
 
-
 const projectCreation = () => {
   projectBtn.addEventListener('click', () => {
     if (!validateInput(projectName)) {
@@ -55,7 +54,6 @@ const openProjectModal = () => {
     modal.style.display = 'none';
   });
 };
-
 
 export {
   displayProjects,

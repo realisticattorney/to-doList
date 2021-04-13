@@ -1,4 +1,8 @@
-import { displayProjects, projectCreation } from './project';
+index
+import {
+  displayProjects, projectCreation, addProjectsToSelection, openProjectModal,
+} from './project';
+import { taskCreation, openTaskModal } from './task';
 import {
   filteringBtns, pastAction, todayAction, allAction, displayAll,
 } from './filter';
