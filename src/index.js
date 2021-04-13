@@ -1,4 +1,8 @@
 import { displayProjects, projectCreation } from './project';
+import {
+  filteringBtns, pastAction, todayAction, allAction, displayAll,
+} from './filter';
+
 
 projectCreation();
 
