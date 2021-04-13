@@ -1,70 +1,237 @@
-
+/*
+  #0D1B2A - rgb(13, 27, 42);
+  #1B263B - rgb(27, 38, 59);
+  #415A77 - rgb(65, 90, 119);
+  #778DA9 - rgb(119, 141, 169);
+  #E0E1DD - rgb(224, 225, 221);
+*/
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
-  background-image: linear-gradient(120deg, #e2c35e, #d15a39);
-  color: white;
+  height: 100vh;
+  background-color: #E0E1DD;
 }
 
-header,
-form {
-  min-height: 20vh;
+.d-flex {
   display: flex;
-  justify-content: center;
-  align-items: center 
 }
-form input, form button {
-  padding: 0.5rem;
-  font-size: 1rem;
+
+.jt-btw {
+  justify-content: space-between;
+}
+
+.f-column {
+  flex-direction: column;
+}
+
+.myContainer {
+  padding: 10px;
+}
+
+.header {
+  margin: 15px 15px 8px 15px;
+  color: #0D1B2A;
+}
+
+.projectsContainer {
+  width: 350px;
+  padding: 20px;
+}
+
+.projectsHeader {
+  margin-bottom: 10px;
+}
+
+.projectBtn,
+.extraBtn {
   border: none;
-  background: white 
+  text-align: start;
+  border-radius: 10px;
+  width: 190px;
+  height: 30px;
+  align-self: center;
+  margin-bottom: 10px;
+  background: none;
+  font-size: medium;
+  font-weight: bold;
 }
 
-form
+.projectBtn:hover,
+.projectBtn:active,
+.projectBtn:focus,
+.extraBtn:hover,
+.extraBtn:active,
+.extraBtn:focus {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 0.7;
+  text-decoration: underline;
+}
 
+.tasksContainer {
+  width: 100%;
+  padding: 20px;
+}
 
+.tasksHeader {
+  margin-bottom: 10px;
+}
 
+.singleTask {
+  padding: 10px;
+  margin: 15px;
+  width: 500px;
+  align-self: center;
+  justify-content: space-between;
+}
 
-/* The sidebar menu */
-.sidenav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 260px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
+.taskWrapper {
+  border-bottom: 1px solid grey;
+  width: 500px;
+  padding: 10px;
+  margin: 15px;
+  align-self: center;
+}
+
+.hiddenItems {
+  display: none;
+}
+
+.editTaskBtn:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.editing {
+  display: none;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
   left: 0;
-  background-color: rgb(230, 230, 230); /* Black */
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* The navigation menu links */
-.sidenav a {
-  padding: 6px 8px 6px 16px;
+.modalContent {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.projectModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.projectContent {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 600px;
+}
+
+.projectContent input {
+  padding: 5px;
+}
+
+.projectContent button {
+  padding: 5px;
+}
+
+.projectContent button:hover {
+  cursor: pointer;
+}
+
+.taskModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.taskContent {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.taskContent input,
+.taskContent select {
+  padding: 5px;
+}
+
+.taskContent button {
+  padding: 5px;
+}
+
+.taskContent button:hover,
+.taskContent select:hover {
+  cursor: pointer;
+}
+
+.close,
+.closeProject,
+.closeTask {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.closeProject:hover,
+.closeTask:hover ,
+.close:focus,
+.closeProject:focus,
+.closeTask:focus {
+  color: black;
   text-decoration: none;
-  font-size: 20px;
-  color: #413131;
-  display: block;
+  cursor: pointer;
 }
 
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-  color: #f1f1f1;
+.openModalBtn {
+  background: none;
+  border: none;
+  outline: none;
 }
 
-/* Style page content */
-.main {
-  margin-left: 160px; /* Same as the width of the sidebar */
-  padding: 0px 10px;
+.openModalBtn:hover {
+  cursor: pointer;
+  opacity: 0.5;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+.showTaskBtn:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }
