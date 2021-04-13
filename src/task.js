@@ -10,7 +10,7 @@ const taskProject = document.querySelector('#task-project');
 const taskBtn = document.querySelector('#task-btn');
 
 const createTask = (name, desc, date, priority, project) => ({
-  name, desc, date, priority, project
+  name, desc, date, priority, project,
 });
 
 const addNewTask = (name, desc, date, priority, project) => {

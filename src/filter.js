@@ -34,6 +34,7 @@ const pastAction = () => {
   });
 };
 
+/* eslint-disable  */
 const displayToday = () => {
   const tasksArr = updatedTasks();
   const filteredArr = tasksArr.filter(
@@ -42,6 +43,7 @@ const displayToday = () => {
   );
   displayArrOfTasks(filteredArr);
 };
+/* eslint-enable  */
 
 const todayAction = () => {
   const todayBtn = document.querySelector('#todayBtn');
