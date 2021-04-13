@@ -109,6 +109,7 @@ const openEdit = (id) => {
   modalContent.appendChild(closeBtn);
   modalWrapper.appendChild(modalContent);
   contentDiv.appendChild(modalWrapper);
+
   const openModal = document.querySelector('.modal');
   openModal.style.display = 'block';
 
@@ -164,7 +165,6 @@ const expandAction = () => {
     });
   }
 };
-
 
 const editTask = () => {
   const tasks = document.querySelectorAll('.singleTask');

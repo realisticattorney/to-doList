@@ -1,4 +1,3 @@
-index
 import {
   displayProjects, projectCreation, addProjectsToSelection, openProjectModal,
 } from './project';
@@ -27,5 +26,3 @@ window.addEventListener('load', () => {
   todayAction();
   allAction();
 });
-
-

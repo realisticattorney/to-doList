@@ -58,6 +58,7 @@ const openProjectModal = () => {
 export {
   displayProjects,
   projectCreation,
+  updatedProjects,
   addProjectsToSelection,
   openProjectModal,
 };
