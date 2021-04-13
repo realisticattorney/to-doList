@@ -71,4 +71,10 @@ const filteringBtns = () => {
   }
 };
 
-
+export {
+  displayAll,
+  filteringBtns,
+  todayAction,
+  pastAction,
+  allAction,
+};
