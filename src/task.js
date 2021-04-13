@@ -178,3 +178,25 @@ const editTask = () => {
     tasks[i].appendChild(editBtn);
   }
 };
+
+const displayArrOfTasks = (arr) => {
+  const p = arr.map((task) => (
+    `<div class='d-flex f-column taskWrapper'>
+      <div class='singleTask d-flex'>
+        <div>
+            <h3>${task.name}</h3>
+            <p>${task.date.slice(5)}</p>
+        </div>
+      </div>
+      <div class='hiddenItems'>
+        <p>${task.desc}</p>
+        <p>${task.priority}</p>
+        <p>${task.project}</p>
+      </div>
+    </div>`
+  )).join('\n');
+  document.querySelector('#tasks-container').innerHTML = p;
+  editTask();
+  expandBtn();
+  expandAction();
+};
