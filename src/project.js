@@ -12,12 +12,12 @@ const updateProjects = (arr) => {
 }
 
 const displayProjects = () => {
-  const temp = updatedProjects();
-  const p = temp.map(project => (
-    `<p>${project.name}</p>`
+  const arr = updatedProjects();
+  const p = arr.map((project) => (
+    `<button class='projectBtn' >${project.name}</button>`
   )).join('\n');
   document.querySelector('#projects-container').innerHTML = p;
-}
+};
 
 const addNewProject = (name) => {
   const item = createProject(name);
