@@ -213,3 +213,14 @@ const openTaskModal = () => {
     modal.style.display = 'none';
   });
 };
+
+const taskCreation = () => {
+  taskBtn.addEventListener('click', () => {
+    if (!validateInput(taskName)) {
+      addNewTask(
+        taskName.value, taskDesc.value, taskDate.value, taskPriority.value, taskProject.value,
+      );
+      displayArrOfTasks(updatedTasks());
+    }
+  });
+};
