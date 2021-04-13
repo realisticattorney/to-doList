@@ -164,3 +164,17 @@ const expandAction = () => {
     });
   }
 };
+
+
+const editTask = () => {
+  const tasks = document.querySelectorAll('.singleTask');
+  for (let i = 0; i < tasks.length; i += 1) {
+    const editBtn = document.createElement('span');
+    editBtn.innerText = 'edit';
+    editBtn.classList.add('material-icons', 'editTaskBtn');
+    editBtn.addEventListener('click', () => {
+      openEdit(i);
+    });
+    tasks[i].appendChild(editBtn);
+  }
+};
