@@ -63,7 +63,7 @@ const filteringBtns = () => {
     projectBtns[i].addEventListener('click', () => {
       const tasks = JSON.parse(localStorage.getItem('tasks'));
 
-      const filteredTasks = tasks.filter((task) => {
+      const filteredTasks = tasks.filter(function(task) {
         if (task.project === projectBtns[i].innerText) {
           return task;
         }
