@@ -4,7 +4,8 @@
 
 > The purpose of this project was to build an app where users can creates lists called projects, and within them create tasks, each with it's own title, description, date and priority level, sort of a reminder's app such as Google Calendar but with far less features, and then to store it on the browser of the user. So no backend.
 
-![screenshot](./build/screenshot.png)
+![screenshot](./dist/assets/screenshot.png)
+
 
 Additional description about the project and its features.
 
