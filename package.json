@@ -4,16 +4,17 @@
   "description": ".",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/realisticattorney/to-doList.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "German Axel Aquila & Luis Vinicius Marques",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/realisticattorney/to-doList/issues"
   },

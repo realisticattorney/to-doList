@@ -1,8 +1,6 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
-
 # To-Do List
 
-> The purpose of this project was to build an app where users can creates lists called projects, and within them create tasks, each with it's own title, description, date and priority level, sort of a reminder's app such as Google Calendar but with far less features, and then to store it on the browser of the user. So no backend.
+> The purpose of this project was to build an app where users can create lists (called projects) where they can add to-do tasks, each with its own title, description, date and priority level. The data is stored locally in the user's browser.
 
 ![screenshot](./dist/assets/screenshot.png)
 

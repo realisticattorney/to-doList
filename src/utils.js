@@ -10,7 +10,6 @@ const updateProjects = (arr) => localStorage.setItem('projects', JSON.stringify(
 
 const validateInput = (id) => {
   if (id.value === null || id.value === '') {
-    alert('Please fill the required fields');
     return true;
   }
   return false;
