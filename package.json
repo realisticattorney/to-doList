@@ -1,20 +1,20 @@
 {
-  "name": "to-doList",
+  "name": "todolist",
   "version": "1.0.0",
   "description": ".",
   "private": true,
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development --open"
+    "start": "webpack-dev-server --mode development --open" 
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/realisticattorney/to-doList.git"
   },
   "keywords": [],
-  "author": "German Axel Aquila & Luis Vinicius Marques",
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/realisticattorney/to-doList/issues"
   },
