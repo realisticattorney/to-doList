@@ -1,5 +1,5 @@
 {
-  "name": "todolist",
+  "name": "to-doList",
   "version": "1.0.0",
   "description": ".",
   "private": true,
@@ -13,7 +13,7 @@
     "url": "git+https://github.com/realisticattorney/to-doList.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "German Axel Aquila & Luis Vinicius Marques",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/realisticattorney/to-doList/issues"
