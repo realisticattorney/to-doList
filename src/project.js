@@ -61,4 +61,5 @@ export {
   updatedProjects,
   addProjectsToSelection,
   openProjectModal,
+  createProject,
 };
