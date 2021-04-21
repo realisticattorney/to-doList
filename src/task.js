@@ -229,4 +229,5 @@ export {
   taskCreation,
   openTaskModal,
   displayArrOfTasks,
+  createTask,
 };
