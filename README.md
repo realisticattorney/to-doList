@@ -21,6 +21,12 @@ Cd into the directory - cd Library
 Open the live server on your VScode Alt + L then Alt + o
 To get a local copy up and running follow these simple example steps.
 
+## How to run the tests
+
+- Open your terminal and cd into the directory - `cd to-doList`
+- Run the following command - `npm test`
+
+
 ## Authors
 
 👤 **Luis Vinicius Marques**
